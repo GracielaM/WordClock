@@ -55,7 +55,15 @@
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
     [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:toolbar];
+<<<<<<< HEAD
         [self lightTheWords];
+=======
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
+    [runloop addTimer:timer forMode:NSRunLoopCommonModes];
+    [runloop addTimer:timer forMode:UITrackingRunLoopMode];
+       // [self test];
+>>>>>>> 73652e726303dee8245c3c968b4c0549b548fd6f
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,10 +73,16 @@
     
 }
 
+<<<<<<< HEAD
 
 -(void)lightTheWords{
     int h = [self currentHour];
 
+=======
+-(void)test {
+    
+    int h = [self currentHour];
+>>>>>>> 73652e726303dee8245c3c968b4c0549b548fd6f
     
     
     if ( [self currentMinutes] >= 55) {
