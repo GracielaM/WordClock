@@ -40,30 +40,30 @@
 @synthesize past;
 
 @synthesize lightColor;
+@synthesize defaultLetterColor;
 
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
     self.lightColor = [UIColor whiteColor];
-    //[self lightTheWords];
+    self.defaultLetterColor = [UIColor blackColor];
     self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
     
-    self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     CGRect frame, remain;
     CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
     [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:toolbar];
-<<<<<<< HEAD
-        [self lightTheWords];
-=======
+
+    [self lightTheWords];
+
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
        // [self test];
->>>>>>> 73652e726303dee8245c3c968b4c0549b548fd6f
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,16 +73,9 @@
     
 }
 
-<<<<<<< HEAD
-
 -(void)lightTheWords{
     int h = [self currentHour];
-
-=======
--(void)test {
-    
-    int h = [self currentHour];
->>>>>>> 73652e726303dee8245c3c968b4c0549b548fd6f
+    [self setDefaultLetterColor];
     
     
     if ( [self currentMinutes] >= 55) {
@@ -168,5 +161,13 @@
     NSInteger minute = [dateComponents minute];
     return minute;
 }
-
+-(void)setDefaultLetterColor {
+    for(int i=1;i<[self.numbers count];i++){
+        [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+    }
+    for(int i=1;i<[self.qualifiers count];i++){
+        [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+        
+    }
+}
 @end

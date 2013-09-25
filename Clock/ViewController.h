@@ -35,6 +35,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
 @property UIColor* lightColor;
+@property UIColor* defaultLetterColor;
+-(void)setDefaultLetterColor;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
 -(void) lightTheWords ;
