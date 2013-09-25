@@ -48,7 +48,11 @@
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
     [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:toolbar];
-        [self test];
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
+    [runloop addTimer:timer forMode:NSRunLoopCommonModes];
+    [runloop addTimer:timer forMode:UITrackingRunLoopMode];
+       // [self test];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,9 +63,8 @@
 }
 
 -(void)test {
-
+    
     int h = [self currentHour];
-    //self.numbers = [[NSArray alloc]initWithObjects:@"",@"one", @"two", @"three",@"four", @"five", @"six", @"seven", @"eight", @"nine", @"ten", @"eleven", @"twelve", nil];
     
     self.qualifiers = [[NSArray alloc]initWithObjects:@"half",@"ten",@"quarter",@"twenty", @"five", @"minutes", @"to",@"past", @"o'clock", nil];
     
