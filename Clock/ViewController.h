@@ -12,9 +12,6 @@
 
 @property(strong, nonatomic) NSArray *numbers;
 @property(strong, nonatomic) NSArray *qualifiers;
-//int h = 5;
-//int m = 37;
-// [qrtr, half, o\'clock]
 @property (strong, nonatomic) IBOutlet UILabel *half;
 @property (strong, nonatomic) IBOutlet UILabel *tenQual;
 @property (strong, nonatomic) IBOutlet UILabel *quarter;
@@ -40,6 +37,6 @@
 
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
--(void) test ;
--(void) changeColor: (UILabel *)lblName;
+-(void) liteTheWords ;
+-(void) changeColor: (UILabel *)lblName :(UIColor*)color;
 @end
