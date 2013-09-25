@@ -169,5 +169,6 @@
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
         
     }
+    [self changeColor:self.ten :[UIColor redColor]];
 }
 @end
