@@ -39,20 +39,31 @@
 @synthesize to;
 @synthesize past;
 
+@synthesize lightColor;
+@synthesize defaultLetterColor;
+
 - (void)viewDidLoad
-{
+{   
     [super viewDidLoad];
+    self.lightColor = [UIColor whiteColor];
+    self.defaultLetterColor = [UIColor blackColor];
     self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
+    
     CGRect frame, remain;
     CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
     [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:toolbar];
+
+    [self lightTheWords];
+
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
        // [self test];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,76 +73,75 @@
     
 }
 
--(void)test {
-    
+-(void)lightTheWords{
     int h = [self currentHour];
+    [self setDefaultLetterColor];
     
-    self.qualifiers = [[NSArray alloc]initWithObjects:@"half",@"ten",@"quarter",@"twenty", @"five", @"minutes", @"to",@"past", @"o'clock", nil];
     
     if ( [self currentMinutes] >= 55) {
-       // minutes = @"five to";
-        [self changeColor:fiveQual];
-        [self changeColor:minutes];
-        [self changeColor:to];
+        // minutes = @"five to";
+        [self changeColor:fiveQual:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:to:self.lightColor];
         h++;
     }else if( [self currentMinutes] >= 50) {
-        [self changeColor:tenQual];
-        [self changeColor:minutes];
-        [self changeColor:to];
-       // minutes = @"ten to";
+        [self changeColor:tenQual:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:to:self.lightColor];
+        // minutes = @"ten to";
         h++;
     }else if( [self currentMinutes] >= 45) {
-        [self changeColor:quarter];
-        [self changeColor:to];
-       // minutes = @"quarter to";
+        [self changeColor:quarter:self.lightColor];
+        [self changeColor:to:self.lightColor];
+        // minutes = @"quarter to";
         h++;
     }else if( [self currentMinutes] >= 40){
-        [self changeColor:twenty];
-        [self changeColor:minutes];
-        [self changeColor:to];
-       // minutes = @"twenty to";
+        [self changeColor:twenty:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:to:self.lightColor];
+        // minutes = @"twenty to";
         h++;
     }else if( [self currentMinutes] >= 30) {
-        [self changeColor:half];
-        [self changeColor:past];
-       
+        [self changeColor:half:self.lightColor];
+        [self changeColor:past:self.lightColor];
+        
     }else if ( [self currentMinutes] >= 20) {
-        [self changeColor:twenty];
-        [self changeColor:minutes];
-        [self changeColor:past];
-       // minutes = @"twenty past";
+        [self changeColor:twenty:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:past:self.lightColor];
+        // minutes = @"twenty past";
     }else if( [self currentMinutes] >= 15) {
-        [self changeColor:quarter];
-        [self changeColor:past];
-       // minutes = @"quarter past";
+        [self changeColor:quarter:self.lightColor];
+        [self changeColor:past:self.lightColor];
+        // minutes = @"quarter past";
     }else if ( [self currentMinutes] >= 10) {
-        [self changeColor:tenQual];
-        [self changeColor:minutes];
-        [self changeColor:past];
-       // minutes = @"ten past";
+        [self changeColor:tenQual:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:past:self.lightColor];
+        // minutes = @"ten past";
     }else if( [self currentMinutes] >= 5) {
-        [self changeColor:fiveQual];
-        [self changeColor:minutes];
-        [self changeColor:past];
-       // minutes = @"five past";
-    }else if( [self currentMinutes] >= 0){
-        [self changeColor:oclock];
-       // minutes = @"o'clock";
+        [self changeColor:fiveQual:self.lightColor];
+        [self changeColor:minutes:self.lightColor];
+        [self changeColor:past:self.lightColor];
+            }else if( [self currentMinutes] >= 0){
+        [self changeColor:oclock:self.lightColor];
+        // minutes = @"o'clock";
     }
     if(h == [self currentHour]){
         
-    
-    NSInteger test = [self currentHour];
-    [self changeColor:numbers[test]];
+        
+        NSInteger test = [self currentHour];
+        [self changeColor:numbers[test]:self.lightColor];
     } else {
-        [self changeColor:numbers[h]];
+        [self changeColor:numbers[h]:self.lightColor];
     }
     //hour = numbers[h];
+    
    
 }
 
--(void)changeColor:(UILabel *)lblName{
-    lblName.textColor = [UIColor redColor];
+-(void)changeColor:(UILabel *)lblName : (UIColor*) color{
+    lblName.textColor = color;
 }
 - (NSInteger)currentHour
 {
@@ -151,5 +161,13 @@
     NSInteger minute = [dateComponents minute];
     return minute;
 }
-
+-(void)setDefaultLetterColor {
+    for(int i=1;i<[self.numbers count];i++){
+        [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+    }
+    for(int i=1;i<[self.qualifiers count];i++){
+        [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+        
+    }
+}
 @end
