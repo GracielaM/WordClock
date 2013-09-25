@@ -38,6 +38,7 @@
 @synthesize minutes;
 @synthesize to;
 @synthesize past;
+@synthesize itsLbl;
 
 @synthesize lightColor;
 @synthesize defaultLetterColor;
@@ -45,11 +46,7 @@
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
-    self.lightColor = [UIColor whiteColor];
-    self.defaultLetterColor = [UIColor blackColor];
-    self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
-    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
-    
+    [self formatLbls];
     CGRect frame, remain;
     CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
@@ -65,6 +62,16 @@
        // [self test];
 
 }
+-(void)formatLbls{
+    self.lightColor = [UIColor whiteColor];
+    self.defaultLetterColor = [UIColor blackColor];
+    self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
+    self.itsLbl.textColor = self.lightColor;
+    self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
+    [self setDefaultLetterColorAndFont];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,7 +82,7 @@
 
 -(void)lightTheWords{
     int h = [self currentHour];
-    [self setDefaultLetterColor];
+    [self setDefaultLetterColorAndFont];
     
     
     if ( [self currentMinutes] >= 55) {
@@ -143,6 +150,9 @@
 -(void)changeColor:(UILabel *)lblName : (UIColor*) color{
     lblName.textColor = color;
 }
+-(void)setFont:(UILabel*)lblName{
+    lblName.font = [UIFont boldSystemFontOfSize:20];
+}
 - (NSInteger)currentHour
 {
     // In practice, these calls can be combined
@@ -161,14 +171,15 @@
     NSInteger minute = [dateComponents minute];
     return minute;
 }
--(void)setDefaultLetterColor {
+-(void)setDefaultLetterColorAndFont {
     for(int i=1;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+       // [self setFont:[self.numbers objectAtIndex:i]];
     }
-    for(int i=1;i<[self.qualifiers count];i++){
+    for(int i=0;i<[self.qualifiers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-        
+        //[self setFont:[self.numbers objectAtIndex:i]];
     }
-    [self changeColor:self.ten :[UIColor redColor]];
+
 }
 @end
