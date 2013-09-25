@@ -42,10 +42,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     [self liteTheWords];
     self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
     
+=======
+    self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
+    CGRect frame, remain;
+    CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
+    [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
+    [self.view addSubview:toolbar];
+        [self test];
+>>>>>>> a2b3cc38256f8fb94a09e58e5edaeeaa7b25d804
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,12 +65,20 @@
     
 }
 
+<<<<<<< HEAD
 -(void)liteTheWords{
     int h = [self currentHour];
+=======
+-(void)test {
+
+    int h = [self currentHour];
+    //self.numbers = [[NSArray alloc]initWithObjects:@"",@"one", @"two", @"three",@"four", @"five", @"six", @"seven", @"eight", @"nine", @"ten", @"eleven", @"twelve", nil];
+>>>>>>> a2b3cc38256f8fb94a09e58e5edaeeaa7b25d804
     
     self.qualifiers = [[NSArray alloc]initWithObjects:@"half",@"ten",@"quarter",@"twenty", @"five", @"minutes", @"to",@"past", @"o'clock", nil];
     
     if ( [self currentMinutes] >= 55) {
+<<<<<<< HEAD
         // minutes = @"five to";
         [self changeColor:fiveQual:[UIColor whiteColor]];
         [self changeColor:minutes:[UIColor whiteColor]];
@@ -106,6 +124,53 @@
         [self changeColor:minutes:[UIColor whiteColor]];
         [self changeColor:past:[UIColor whiteColor]];
         // minutes = @"five past";
+=======
+       // minutes = @"five to";
+        [self changeColor:fiveQual];
+        [self changeColor:minutes];
+        [self changeColor:to];
+        h++;
+    }else if( [self currentMinutes] >= 50) {
+        [self changeColor:tenQual];
+        [self changeColor:minutes];
+        [self changeColor:to];
+       // minutes = @"ten to";
+        h++;
+    }else if( [self currentMinutes] >= 45) {
+        [self changeColor:quarter];
+        [self changeColor:to];
+       // minutes = @"quarter to";
+        h++;
+    }else if( [self currentMinutes] >= 40){
+        [self changeColor:twenty];
+        [self changeColor:minutes];
+        [self changeColor:to];
+       // minutes = @"twenty to";
+        h++;
+    }else if( [self currentMinutes] >= 30) {
+        [self changeColor:half];
+        [self changeColor:past];
+       
+    }else if ( [self currentMinutes] >= 20) {
+        [self changeColor:twenty];
+        [self changeColor:minutes];
+        [self changeColor:past];
+       // minutes = @"twenty past";
+    }else if( [self currentMinutes] >= 15) {
+        [self changeColor:quarter];
+        [self changeColor:past];
+       // minutes = @"quarter past";
+    }else if ( [self currentMinutes] >= 10) {
+        [self changeColor:tenQual];
+        [self changeColor:minutes];
+        [self changeColor:past];
+       // minutes = @"ten past";
+    }else if( [self currentMinutes] >= 5) {
+        [self changeColor:fiveQual];
+        [self changeColor:minutes];
+        [self changeColor:past];
+       // minutes = @"five past";
+>>>>>>> a2b3cc38256f8fb94a09e58e5edaeeaa7b25d804
     }else if( [self currentMinutes] >= 0){
         [self changeColor:oclock:[UIColor whiteColor]];
         // minutes = @"o'clock";
@@ -138,33 +203,11 @@
 
 - (NSInteger)currentMinutes
 {
-    // In practice, these calls can be combined
-   /* NSDate *now = [NSDate date];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
-    NSLog(@"%d", [components minute]);
-    return [components minute];
-    */
-    NSDate *now = [NSDate date];
+        NSDate *now = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [gregorian components:(NSHourCalendarUnit  | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:now];
     NSInteger minute = [dateComponents minute];
     return minute;
 }
-/*
- h=3
- m=45
- if m >= 40
- h++ 
- m == 45
- 
- m == 15
- m==30
- m==0
- m==10
- m==5
- m==40 // 20 to
- = numbers[h]
- */
 
 @end
