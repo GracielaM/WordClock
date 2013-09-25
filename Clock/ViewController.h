@@ -34,9 +34,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *twelve;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
-
+@property UIColor* lightColor;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
--(void) liteTheWords ;
+-(void) lightTheWords ;
 -(void) changeColor: (UILabel *)lblName :(UIColor*)color;
 @end
