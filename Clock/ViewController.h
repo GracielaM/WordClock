@@ -35,13 +35,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *itsLbl;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
+<<<<<<< HEAD
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
+=======
+>>>>>>> d0250fd3b33c37b057463373e04563261344be32
 
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
--(void)setFont:(UILabel*)lblName;
--(void)setDefaultLetterColorAndFont;
+-(void)setDefaultLetterColor;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
 -(void) lightTheWords ;
