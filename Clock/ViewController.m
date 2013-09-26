@@ -178,7 +178,7 @@
     }
     for(int i=0;i<[self.qualifiers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-        //[self setFont:[self.numbers objectAtIndex:i]];
+        [self setFont:[self.numbers objectAtIndex:i]];
     }
 
 }
