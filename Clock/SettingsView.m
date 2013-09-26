@@ -7,12 +7,14 @@
 //
 
 #import "SettingsView.h"
+#import "ViewController.h"
 
 @interface SettingsView ()
 
 @end
 
 @implementation SettingsView
+@synthesize redLetterImg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,4 +37,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    ViewController* vc = [[ViewController alloc]init];
+    if ([touch view] == redLetterImg)
+    {
+        NSLog(@"BIG shit");
+        vc.lightColor = [UIColor blueColor];
+    }
+    
+}
 @end

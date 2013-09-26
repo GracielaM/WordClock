@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsView : UIViewController
+@property (strong, nonatomic) IBOutlet UIImageView *redLetterImg;
 
 @end
