@@ -37,8 +37,7 @@
 
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
--(void)setFont:(UILabel*)lblName;
--(void)setDefaultLetterColorAndFont;
+-(void)setDefaultLetterColor;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
 -(void) lightTheWords ;

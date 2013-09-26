@@ -46,13 +46,15 @@
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
+    self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock,tenQual, fiveQual, nil];
     [self formatLbls];
-    CGRect frame, remain;
+    /*CGRect frame, remain;
     CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
     [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:toolbar];
-
+*/
     [self lightTheWords];
 
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
@@ -63,13 +65,12 @@
 
 }
 -(void)formatLbls{
+    self.view.backgroundColor = [UIColor blackColor];
     self.lightColor = [UIColor whiteColor];
-    self.defaultLetterColor = [UIColor blackColor];
-    self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
-    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
+    self.defaultLetterColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
-    [self setDefaultLetterColorAndFont];
+    [self setDefaultLetterColor];
     
 }
 
@@ -82,7 +83,7 @@
 
 -(void)lightTheWords{
     int h = [self currentHour];
-    [self setDefaultLetterColorAndFont];
+    [self setDefaultLetterColor];
     
     
     if ( [self currentMinutes] >= 55) {
@@ -150,9 +151,7 @@
 -(void)changeColor:(UILabel *)lblName : (UIColor*) color{
     lblName.textColor = color;
 }
--(void)setFont:(UILabel*)lblName{
-    lblName.font = [UIFont boldSystemFontOfSize:20];
-}
+
 - (NSInteger)currentHour
 {
     // In practice, these calls can be combined
@@ -172,16 +171,12 @@
     NSInteger minute = [dateComponents minute];
     return minute;
 }
--(void)setDefaultLetterColorAndFont {
-    for(int i=1;i<[self.numbers count];i++){
+-(void)setDefaultLetterColor {
+    for(int i=0;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-
-        [self setFont:[self.numbers objectAtIndex:i]];
-
     }
-    for(int i=1;i<[self.qualifiers count];i++){
+    for(int i=0;i<[self.qualifiers count];i++){
         [self changeColor:[self.qualifiers objectAtIndex:i]:self.defaultLetterColor];
-         [self setFont:[self.qualifiers objectAtIndex:i]];
     }
 
 }
