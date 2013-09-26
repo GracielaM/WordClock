@@ -49,12 +49,7 @@
     self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock,tenQual, fiveQual, nil];
     [self formatLbls];
-    CGRect frame, remain;
-    CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
-    [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
-    [self.view addSubview:toolbar];
-
+    
     [self lightTheWords];
 
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
