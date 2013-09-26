@@ -13,36 +13,23 @@
 #import "SettingsView.h"
 
 @implementation AppDelegate
-@synthesize tabBarController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    //self.window.rootViewController = self.viewController;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     
+    [self.window makeKeyAndVisible];
     
    // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
    // self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     //self.window.rootViewController = self.viewController;
    // [self.window makeKeyAndVisible];
-   // return YES;
-    self.tabBarController = [[UITabBarController alloc] init];
-    UIViewController *viewController = [[ViewController alloc] init];
-    UIViewController *settings = [[SettingsView alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController,settings, nil];
-    
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.tabBarController;
-    UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-
-    tabBarItem1.title = @"Clock";
-    tabBarItem2.title = @"Settings";
-    [self.window makeKeyAndVisible];
-    return YES;
-}
+   return YES;
+   }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
