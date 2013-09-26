@@ -137,8 +137,8 @@
     if(h == [self currentHour]){
         
         
-        NSInteger test = [self currentHour];
-        [self changeColor:numbers[test-1]:self.lightColor];
+       NSInteger hour = [self currentHour];
+          [self changeColor:numbers[hour-1]:self.lightColor];
     } else {
         [self changeColor:numbers[h-1]:self.lightColor];
     }
@@ -159,8 +159,9 @@
     NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
-    
-    return [components hour];
+    if([components hour]>12)
+    return [components hour] - 12;
+    else return [components hour];
 }
 
 - (NSInteger)currentMinutes
