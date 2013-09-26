@@ -174,15 +174,10 @@
 -(void)setDefaultLetterColorAndFont {
     for(int i=1;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-<<<<<<< HEAD
-        
-=======
-       // [self setFont:[self.numbers objectAtIndex:i]];
->>>>>>> a9f1cc4f68a705de1c4db273d8655ee2ac134609
     }
     for(int i=0;i<[self.qualifiers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-        [self setFont:[self.numbers objectAtIndex:i]];
+        
     }
 
 }
