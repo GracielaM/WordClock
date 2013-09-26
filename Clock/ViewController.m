@@ -49,7 +49,12 @@
     self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock,tenQual, fiveQual, nil];
     [self formatLbls];
-    
+    CGRect frame, remain;
+    CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
+    [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
+    [self.view addSubview:toolbar];
+
     [self lightTheWords];
 
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
@@ -133,8 +138,8 @@
     if(h == [self currentHour]){
         
         
-        NSInteger test = [self currentHour];
-        [self changeColor:numbers[test-1]:self.lightColor];
+       NSInteger hour = [self currentHour];
+          [self changeColor:numbers[hour-1]:self.lightColor];
     } else {
         [self changeColor:numbers[h-1]:self.lightColor];
     }
@@ -153,8 +158,9 @@
     NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
-    
-    return [components hour];
+    if([components hour]>12)
+    return [components hour] - 12;
+    else return [components hour];
 }
 
 - (NSInteger)currentMinutes
