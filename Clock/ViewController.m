@@ -47,12 +47,7 @@
 {   
     [super viewDidLoad];
     [self formatLbls];
-    CGRect frame, remain;
-    CGRectDivide(self.view.bounds, &frame, &remain, 44, CGRectMaxYEdge);
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:frame];
-    [toolbar setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin];
-    [self.view addSubview:toolbar];
-
+    
     [self lightTheWords];
 
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];

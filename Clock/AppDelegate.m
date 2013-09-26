@@ -11,16 +11,25 @@
 #import "ViewController.h"
 
 @implementation AppDelegate
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.tabBarController = [[UITabBarController alloc] init];
+    UIViewController *viewController = [[ViewController alloc] init];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController, nil];
+    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.tabBarController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    tabBarItem1.title = @"Settings";
     [self.window makeKeyAndVisible];
     return YES;
-}
+    }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

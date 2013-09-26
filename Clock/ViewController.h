@@ -35,6 +35,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *itsLbl;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UITabBarController *tabBarController;
+
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
 -(void)setFont:(UILabel*)lblName;
