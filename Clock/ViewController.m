@@ -65,7 +65,7 @@
 -(void)formatLbls{
     self.lightColor = [UIColor whiteColor];
     self.defaultLetterColor = [UIColor blackColor];
-    self.numbers = [[NSArray alloc]initWithObjects:@" ", one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
+    self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock, nil];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
@@ -138,9 +138,9 @@
         
         
         NSInteger test = [self currentHour];
-        [self changeColor:numbers[test]:self.lightColor];
+        [self changeColor:numbers[test-1]:self.lightColor];
     } else {
-        [self changeColor:numbers[h]:self.lightColor];
+        [self changeColor:numbers[h-1]:self.lightColor];
     }
     //hour = numbers[h];
     
@@ -174,11 +174,9 @@
 -(void)setDefaultLetterColorAndFont {
     for(int i=1;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
-<<<<<<< HEAD
-        [self setFont:[self.numbers objectAtIndex:i]];
-=======
 
->>>>>>> 36204e61b25a094f6d3f9480f61bb37791bd12ea
+        [self setFont:[self.numbers objectAtIndex:i]];
+
     }
     for(int i=1;i<[self.qualifiers count];i++){
         [self changeColor:[self.qualifiers objectAtIndex:i]:self.defaultLetterColor];
