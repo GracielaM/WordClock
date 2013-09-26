@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A8B2FF317F4588F000A1E31 /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B2FF117F4588F000A1E31 /* SettingsView.m */; };
-		5A8B2FF417F4588F000A1E31 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B2FF217F4588F000A1E31 /* SettingsView.xib */; };
 		5ADFA7BE17F1F16A00B64813 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADFA7BD17F1F16A00B64813 /* UIKit.framework */; };
 		5ADFA7C017F1F16A00B64813 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADFA7BF17F1F16A00B64813 /* Foundation.framework */; };
 		5ADFA7C217F1F16A00B64813 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADFA7C117F1F16A00B64813 /* CoreGraphics.framework */; };
@@ -23,9 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A8B2FF017F4588F000A1E31 /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
-		5A8B2FF117F4588F000A1E31 /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
-		5A8B2FF217F4588F000A1E31 /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		5ADFA7BA17F1F16A00B64813 /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADFA7BD17F1F16A00B64813 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5ADFA7BF17F1F16A00B64813 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,9 +85,6 @@
 			children = (
 				5ADFA7CC17F1F16A00B64813 /* AppDelegate.h */,
 				5ADFA7CD17F1F16A00B64813 /* AppDelegate.m */,
-				5A8B2FF017F4588F000A1E31 /* SettingsView.h */,
-				5A8B2FF117F4588F000A1E31 /* SettingsView.m */,
-				5A8B2FF217F4588F000A1E31 /* SettingsView.xib */,
 				5ADFA7D517F1F16A00B64813 /* ViewController.h */,
 				5ADFA7D617F1F16A00B64813 /* ViewController.m */,
 				5ADFA7D817F1F16A00B64813 /* ViewController.xib */,
@@ -171,7 +163,6 @@
 				5ADFA7D217F1F16A00B64813 /* Default@2x.png in Resources */,
 				5ADFA7D417F1F16A00B64813 /* Default-568h@2x.png in Resources */,
 				5ADFA7DA17F1F16A00B64813 /* ViewController.xib in Resources */,
-				5A8B2FF417F4588F000A1E31 /* SettingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +176,6 @@
 				5ADFA7CA17F1F16A00B64813 /* main.m in Sources */,
 				5ADFA7CE17F1F16A00B64813 /* AppDelegate.m in Sources */,
 				5ADFA7D717F1F16A00B64813 /* ViewController.m in Sources */,
-				5A8B2FF317F4588F000A1E31 /* SettingsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +298,6 @@
 				5ADFA7DF17F1F16A00B64813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

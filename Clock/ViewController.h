@@ -35,7 +35,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *itsLbl;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
-
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
 -(void)setDefaultLetterColor;
