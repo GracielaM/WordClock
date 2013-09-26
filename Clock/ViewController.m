@@ -164,6 +164,7 @@
 -(void)setDefaultLetterColor {
     for(int i=1;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+        
     }
     for(int i=1;i<[self.qualifiers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
