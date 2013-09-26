@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "SettingsView.h"
 @interface ViewController ()
 
 @end
@@ -179,4 +179,5 @@
     }
 
 }
+
 @end
