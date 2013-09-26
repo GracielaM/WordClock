@@ -32,11 +32,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *ten;
 @property (strong, nonatomic) IBOutlet UILabel *eleven;
 @property (strong, nonatomic) IBOutlet UILabel *twelve;
+@property (strong, nonatomic) IBOutlet UILabel *itsLbl;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
 
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
--(void)setDefaultLetterColor;
+-(void)setFont:(UILabel*)lblName;
+-(void)setDefaultLetterColorAndFont;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
 -(void) lightTheWords ;
