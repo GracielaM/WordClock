@@ -140,9 +140,6 @@
     } else {
         [self changeColor:numbers[h-1]:self.lightColor];
     }
-    //hour = numbers[h];
-    
-   
 }
 
 -(void)changeColor:(UILabel *)lblName : (UIColor*) color{
