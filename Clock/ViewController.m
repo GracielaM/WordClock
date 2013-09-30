@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SettingsView.h"
 
 @interface ViewController ()
 
@@ -40,8 +41,7 @@
 @synthesize past;
 @synthesize itsLbl;
 
-@synthesize lightColor;
-@synthesize defaultLetterColor;
+
 
 - (void)viewDidLoad
 {   
@@ -50,7 +50,7 @@
     self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock,tenQual, fiveQual, nil];
     [self formatLbls];
    
-    UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Admin" style:UIBarButtonItemStyleBordered target:self action:@selector(goToAdministrationFlow:)];
+    UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings)];
     self.navigationItem.rightBarButtonItem = adminButton;
     
     [self lightTheWords];
@@ -59,7 +59,6 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
-       // [self test];
 
 }
 -(void)formatLbls{
@@ -176,6 +175,21 @@
     for(int i=0;i<[self.qualifiers count];i++){
         [self changeColor:[self.qualifiers objectAtIndex:i]:self.defaultLetterColor];
     }
+
+}
+-(void)goToSettings
+{
+    SettingsView *settingsView =[[SettingsView alloc]initWithNibName:@"SettingsView" bundle:nil];
+    [self.navigationController pushViewController:settingsView animated:NO];
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    NSRunLoop *runloop = [NSRunLoop currentRunLoop];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
+    [runloop addTimer:timer forMode:NSRunLoopCommonModes];
+    [runloop addTimer:timer forMode:UITrackingRunLoopMode];
 
 }
 @end

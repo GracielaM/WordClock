@@ -13,7 +13,7 @@
 #import "SettingsView.h"
 
 @implementation AppDelegate
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -22,26 +22,8 @@
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     
     [self.window makeKeyAndVisible];
-    
-<<<<<<< HEAD
-   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-   //Override point for customization after application launch.
-   self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-   self.window.rootViewController = self.viewController;
-   [self.window makeKeyAndVisible];
-   return YES;
-    
-   
+    return YES;
 }
-=======
-   // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-   // self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    //self.window.rootViewController = self.viewController;
-   // [self.window makeKeyAndVisible];
-   return YES;
-   }
->>>>>>> 3b4c23f63e469a62eeae3f3b7da133c50b86dae2
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

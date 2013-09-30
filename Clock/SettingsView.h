@@ -10,5 +10,7 @@
 
 @interface SettingsView : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *redLetterImg;
+@property UIColor* lightColor;
+@property UIColor* defaultLetterColor;
 
 @end

@@ -16,6 +16,7 @@
 @implementation SettingsView
 @synthesize redLetterImg;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,13 +39,10 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
     UITouch *touch = [touches anyObject];
-    ViewController* vc = [[ViewController alloc]init];
     if ([touch view] == redLetterImg)
-    {
-        NSLog(@"BIG shit");
-        vc.lightColor = [UIColor blueColor];
+    {       
+        self.lightColor = [UIColor redColor];
     }
     
 }
