@@ -46,4 +46,9 @@
     }
     
 }
+-(void)viewDidDisappear:(BOOL)animated
+{
+     [self.delegate myViewControllerFinishedProcessing:self];
+}
+
 @end

@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ViewController;
+@protocol MyViewControllerDelegate <NSObject>
 
+@optional
+
+- (void)myViewControllerFinishedProcessing:(ViewController *)controller;
+
+@end
 @interface SettingsView : UIViewController
+
 @property (strong, nonatomic) IBOutlet UIImageView *redLetterImg;
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
+@property (assign) id <MyViewControllerDelegate> delegate;
 
 @end

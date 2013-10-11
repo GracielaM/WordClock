@@ -14,40 +14,14 @@
 @end
 
 @implementation ViewController
-@synthesize numbers ;
-@synthesize qualifiers;
-
-@synthesize one;
-@synthesize two;
-@synthesize three;
-@synthesize four;
-@synthesize five;
-@synthesize six;
-@synthesize seven;
-@synthesize eight;
-@synthesize nine;
-@synthesize ten;
-@synthesize eleven;
-@synthesize twelve;
-
-@synthesize oclock;
-@synthesize fiveQual;
-@synthesize tenQual;
-@synthesize twenty;
-@synthesize half;
-@synthesize quarter;
-@synthesize minutes;
-@synthesize to;
-@synthesize past;
-@synthesize itsLbl;
 
 
 
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
-    self.numbers = [[NSArray alloc]initWithObjects:one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve, nil];
-    self.qualifiers = [[NSArray alloc]initWithObjects:half,ten,quarter,twenty,five,minutes, to,past, oclock,tenQual, fiveQual, nil];
+    self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:_half, _ten, _quarter, _twenty, _five, _minutes, _to, _past, _oclock,_tenQual, _fiveQual, nil];
     [self formatLbls];
    
     UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings)];
@@ -85,60 +59,58 @@
     
     if ( [self currentMinutes] >= 55) {
         // minutes = @"five to";
-        [self changeColor:fiveQual:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:to:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:10]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         h++;
     }else if( [self currentMinutes] >= 50) {
-        [self changeColor:tenQual:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:to:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:9]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"ten to";
         h++;
     }else if( [self currentMinutes] >= 45) {
-        [self changeColor:quarter:self.lightColor];
-        [self changeColor:to:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:2]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"quarter to";
         h++;
     }else if( [self currentMinutes] >= 40){
-        [self changeColor:twenty:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:to:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:3]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"twenty to";
         h++;
     }else if( [self currentMinutes] >= 30) {
-        [self changeColor:half:self.lightColor];
-        [self changeColor:past:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:0]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
         
     }else if ( [self currentMinutes] >= 20) {
-        [self changeColor:twenty:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:past:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:3]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
         // minutes = @"twenty past";
     }else if( [self currentMinutes] >= 15) {
-        [self changeColor:quarter:self.lightColor];
-        [self changeColor:past:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:2]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
         // minutes = @"quarter past";
     }else if ( [self currentMinutes] >= 10) {
-        [self changeColor:tenQual:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:past:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:9]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
         // minutes = @"ten past";
     }else if( [self currentMinutes] >= 5) {
-        [self changeColor:fiveQual:self.lightColor];
-        [self changeColor:minutes:self.lightColor];
-        [self changeColor:past:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:10]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
             }else if( [self currentMinutes] >= 0){
-        [self changeColor:oclock:self.lightColor];
+        [self changeColor:[_qualifiers objectAtIndex:8]:self.lightColor];
         // minutes = @"o'clock";
     }
     if(h == [self currentHour]){
-        
-        
        NSInteger hour = [self currentHour];
-          [self changeColor:numbers[hour-1]:self.lightColor];
+          [self changeColor:_numbers[hour-1]:self.lightColor];
     } else {
-        [self changeColor:numbers[h-1]:self.lightColor];
+        [self changeColor:_numbers[h-1]:self.lightColor];
     }
 }
 
@@ -177,7 +149,9 @@
 -(void)goToSettings
 {
     SettingsView *settingsView =[[SettingsView alloc]initWithNibName:@"SettingsView" bundle:nil];
+    settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
+
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -188,5 +162,11 @@
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
 
+}
+-(void)myViewControllerFinishedProcessing:(SettingsView *)vc
+{
+    self.lightColor = vc.lightColor;
+    self.defaultLetterColor = vc.defaultLetterColor;
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 @end
