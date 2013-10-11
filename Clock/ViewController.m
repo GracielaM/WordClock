@@ -161,12 +161,17 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
-
+    [self changeColor:_itsLbl :_lightColor];
 }
 -(void)myViewControllerFinishedProcessing:(SettingsView *)vc
 {
-    self.lightColor = vc.lightColor;
-    self.defaultLetterColor = vc.defaultLetterColor;
+    if(vc.lightColor != nil){
+        self.lightColor = vc.lightColor;
+    }
+    if(vc.defaultLetterColor != nil){
+        self.defaultLetterColor = vc.defaultLetterColor;
+    }
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
+
 @end
