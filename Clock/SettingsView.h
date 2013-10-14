@@ -17,7 +17,10 @@
 @end
 @interface SettingsView : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIImageView *redLetterImg;
+@property (strong, nonatomic) IBOutlet UISlider *redSlide;
+@property (strong, nonatomic) IBOutlet UISlider *greenSlide;
+@property (strong, nonatomic) IBOutlet UISlider *blueSlide;
+@property (strong, nonatomic) IBOutlet UIImageView *colorBox;
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
 @property (assign) id <MyViewControllerDelegate> delegate;

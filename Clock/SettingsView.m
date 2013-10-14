@@ -14,7 +14,7 @@
 @end
 
 @implementation SettingsView
-@synthesize redLetterImg;
+@synthesize colorBox;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,7 +40,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
-    if ([touch view] == redLetterImg)
+    if ([touch view] == colorBox)
     {       
         self.lightColor = [UIColor redColor];
     }
@@ -49,6 +49,17 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
      [self.delegate myViewControllerFinishedProcessing:self];
+}
+
+-(void)sliderValueChanged:(UISlider*)slider
+{
+    NSLog(@"slude");
+    float r=[[NSString stringWithFormat:@"%.0f",_redSlide.value] floatValue];
+    float g=[[NSString stringWithFormat:@"%.0f",_greenSlide.value]floatValue];
+    float b=[[NSString stringWithFormat:@"%.0f",_blueSlide.value]floatValue];
+    
+    UIColor *colorToSet=[UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1];
+    self.colorBox.backgroundColor = colorToSet;
 }
 
 	
