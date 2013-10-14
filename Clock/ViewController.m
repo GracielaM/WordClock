@@ -137,6 +137,7 @@
     NSInteger minute = [dateComponents minute];
     return minute;
 }
+
 -(void)setDefaultLetterColor {
     for(int i=0;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
@@ -154,6 +155,7 @@
 
     
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     
