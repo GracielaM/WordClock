@@ -14,8 +14,6 @@
 @end
 
 @implementation SettingsView
-@synthesize colorBox;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +29,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+- (IBAction)greenSlider:(id)sender {
+    [self setColor];
+}
+- (IBAction)redSlider:(id)sender {
+    [self setColor];
+}
+- (IBAction)blueSlider:(id)sender {
+    [self setColor];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,28 +45,30 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    if ([touch view] == colorBox)
-    {       
-        self.lightColor = [UIColor redColor];
-    }
-    
-}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
      [self.delegate myViewControllerFinishedProcessing:self];
 }
 
--(void)sliderValueChanged:(UISlider*)slider
+-(void)setColor
 {
-    NSLog(@"slude");
-    float r=[[NSString stringWithFormat:@"%.0f",_redSlide.value] floatValue];
-    float g=[[NSString stringWithFormat:@"%.0f",_greenSlide.value]floatValue];
-    float b=[[NSString stringWithFormat:@"%.0f",_blueSlide.value]floatValue];
-    
-    UIColor *colorToSet=[UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1];
-    self.colorBox.backgroundColor = colorToSet;
+    UIColor *colorToSet=[UIColor colorWithRed:_redSlide.value green:_greenSlide.value blue:_blueSlide.value alpha:1];
+    if(_colorSwitch.on)
+    {
+        _lightColor = colorToSet;
+        [self setColorBoxes];
+    }
+    else
+    {
+        _defaultLetterColor = colorToSet;
+        [self setColorBoxes];
+    }
+}
+-(void)setColorBoxes
+{
+    _letterColorBox.backgroundColor = _lightColor;
+    _backGroundBox.backgroundColor = _defaultLetterColor;
 }
 
 	
