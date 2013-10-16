@@ -27,6 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setColorBoxes];
+    _letterColorBox.backgroundColor = _lightColor;
+    _backGroundBox.backgroundColor = _defaultLetterColor;
+    _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
+    _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
+    
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)greenSlider:(id)sender {
@@ -65,6 +71,7 @@
         [self setColorBoxes];
     }
 }
+
 -(void)setColorBoxes
 {
     _letterColorBox.backgroundColor = _lightColor;
