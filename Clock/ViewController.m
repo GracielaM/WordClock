@@ -20,6 +20,7 @@
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
+    _backGroundColor = [UIColor blackColor];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:_half, _ten, _quarter, _twenty, _five, _minutes, _to, _past, _oclock,_tenQual, _fiveQual, nil];
     [self formatLbls];
@@ -36,9 +37,9 @@
 
 }
 -(void)formatLbls{
-    self.view.backgroundColor = [UIColor blackColor];
+    _backGroundColor = [UIColor blackColor];
     self.lightColor = [UIColor whiteColor];
-    self.defaultLetterColor = [UIColor colorWithWhite:1 alpha:0.2];
+    self.backGroundColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
     [self setDefaultLetterColor];
@@ -53,33 +54,32 @@
 }
 
 -(void)lightTheWords{
-    int h = [self currentHour];
+    int hour = [self currentHour];
     [self setDefaultLetterColor];
-    
-    
+       
     if ( [self currentMinutes] >= 55) {
         // minutes = @"five to";
         [self changeColor:[_qualifiers objectAtIndex:10]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
-        h++;
+        hour++;
     }else if( [self currentMinutes] >= 50) {
         [self changeColor:[_qualifiers objectAtIndex:9]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"ten to";
-        h++;
+        hour++;
     }else if( [self currentMinutes] >= 45) {
         [self changeColor:[_qualifiers objectAtIndex:2]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"quarter to";
-        h++;
+        hour++;
     }else if( [self currentMinutes] >= 40){
         [self changeColor:[_qualifiers objectAtIndex:3]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
         // minutes = @"twenty to";
-        h++;
+        hour++;
     }else if( [self currentMinutes] >= 30) {
         [self changeColor:[_qualifiers objectAtIndex:0]:self.lightColor];
         [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
@@ -106,11 +106,11 @@
         [self changeColor:[_qualifiers objectAtIndex:8]:self.lightColor];
         // minutes = @"o'clock";
     }
-    if(h == [self currentHour]){
+    if(hour == [self currentHour]){
        NSInteger hour = [self currentHour];
           [self changeColor:_numbers[hour-1]:self.lightColor];
     } else {
-        [self changeColor:_numbers[h-1]:self.lightColor];
+        [self changeColor:_numbers[hour-1]:self.lightColor];
     }
 }
 
@@ -140,20 +140,20 @@
 
 -(void)setDefaultLetterColor {
     for(int i=0;i<[self.numbers count];i++){
-        [self changeColor:[self.numbers objectAtIndex:i]:self.defaultLetterColor];
+        [self changeColor:[self.numbers objectAtIndex:i]:[UIColor colorWithWhite:1 alpha:0.2]];
     }
     for(int i=0;i<[self.qualifiers count];i++){
-        [self changeColor:[self.qualifiers objectAtIndex:i]:self.defaultLetterColor];
+        [self changeColor:[self.qualifiers objectAtIndex:i]:[UIColor colorWithWhite:1 alpha:0.2]];
     }
-
 }
+
 -(void)goToSettings
 {
     SettingsView *settingsView =[[SettingsView alloc]initWithNibName:@"SettingsView" bundle:nil];
+    settingsView.lightColor = _lightColor;
+    settingsView.defaultLetterColor = _backGroundColor;
     settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
-
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -164,6 +164,7 @@
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
     [self changeColor:_itsLbl :_lightColor];
+    self.view.backgroundColor = _backGroundColor;
 }
 -(void)myViewControllerFinishedProcessing:(SettingsView *)vc
 {
@@ -171,7 +172,7 @@
         self.lightColor = vc.lightColor;
     }
     if(vc.defaultLetterColor != nil){
-        self.defaultLetterColor = vc.defaultLetterColor;
+        self.backGroundColor = vc.defaultLetterColor;
     }
     [self.navigationController popToRootViewControllerAnimated:NO];
 }

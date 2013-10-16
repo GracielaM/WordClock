@@ -46,7 +46,7 @@
 @property (assign) id <MyViewControllerDelegate> delegate;
 
 @property(strong) UIColor* lightColor;
-@property(strong) UIColor* defaultLetterColor;
+@property(strong) UIColor* backGroundColor;
 -(void)myViewControllerFinishedProcessing:(SettingsView *)vc;
 -(void) goToSettings ;
 -(void)setDefaultLetterColor;

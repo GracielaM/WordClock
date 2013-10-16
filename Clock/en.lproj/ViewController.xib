@@ -1825,7 +1825,6 @@
 								<int key="contentType">3</int>
 							</object>
 							<reference ref="762186200"/>
-							<reference ref="978683303"/>
 							<reference ref="615735979"/>
 							<reference ref="1053140709"/>
 							<reference ref="44137025"/>
@@ -1846,6 +1845,7 @@
 							<reference ref="867861115"/>
 							<reference ref="682184397"/>
 							<reference ref="344599112"/>
+							<reference ref="978683303"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
