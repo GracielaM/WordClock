@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class ViewController;
+@class ColorPicker;
 @protocol MyViewControllerDelegate <NSObject>
 
 @optional
@@ -17,17 +18,16 @@
 @end
 @interface SettingsView : UIViewController
 
-@property (strong, nonatomic) IBOutlet UISlider *redSlide;
-@property (strong, nonatomic) IBOutlet UISlider *greenSlide;
-@property (strong, nonatomic) IBOutlet UISlider *blueSlide;
+@property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
+@property (strong, nonatomic) IBOutlet UILabel *sampleLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *letterColorBox;
-
-@property (strong, nonatomic) IBOutlet UIImageView *backGroundBox;
+@property (strong, nonatomic) IBOutlet UIImageView *onlyForTesting;
 @property (strong, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
 @property (assign) id <MyViewControllerDelegate> delegate;
+@property ColorPicker* colorPicker;
 
--(void)setColor;
+-(void)setColor: (CGPoint*)point;
 -(void)setColorBoxes;
 @end

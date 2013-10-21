@@ -8,6 +8,7 @@
 
 #import "SettingsView.h"
 #import "ViewController.h"
+#import "ColorPicker.h"
 
 @interface SettingsView ()
 
@@ -28,27 +29,19 @@
 {
     [super viewDidLoad];
     [self setColorBoxes];
+
+    _colorPicker = [[ColorPicker alloc] initWithPaletteImage:_colorPalette.image];
     _letterColorBox.backgroundColor = _lightColor;
-    _backGroundBox.backgroundColor = _defaultLetterColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     
     // Do any additional setup after loading the view from its nib.
 }
-- (IBAction)greenSlider:(id)sender {
-    [self setColor];
-}
-- (IBAction)redSlider:(id)sender {
-    [self setColor];
-}
-- (IBAction)blueSlider:(id)sender {
-    [self setColor];
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of adsdsdsny resources that can be recreated.
 }
 
 
@@ -57,17 +50,28 @@
      [self.delegate myViewControllerFinishedProcessing:self];
 }
 
--(void)setColor
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UIColor *colorToSet=[UIColor colorWithRed:_redSlide.value green:_greenSlide.value blue:_blueSlide.value alpha:1];
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:touch.view];
+    [self setColor:&location];
+    
+    
+}
+
+-(void)setColor: (CGPoint*)point
+{
+   
     if(_colorSwitch.on)
     {
-        _lightColor = colorToSet;
+        _lightColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
+        _onlyForTesting.backgroundColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
         [self setColorBoxes];
     }
     else
     {
-        _defaultLetterColor = colorToSet;
+        _defaultLetterColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
         [self setColorBoxes];
     }
 }
@@ -75,7 +79,7 @@
 -(void)setColorBoxes
 {
     _letterColorBox.backgroundColor = _lightColor;
-    _backGroundBox.backgroundColor = _defaultLetterColor;
+    _sampleLbl.textColor = _defaultLetterColor;
 }
 
 	
