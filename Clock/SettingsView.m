@@ -76,6 +76,4 @@
     _sampleLbl.textColor = _lightColor;
 }
 
-	
-
 @end

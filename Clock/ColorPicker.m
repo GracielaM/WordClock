@@ -56,12 +56,14 @@
 
 -(BOOL)isInView: (CGPoint*)point inView:(UIImageView*)view
 {
-    if(point->x < view.frame.origin.x) return NO;
-    if(point->x > (view.frame.size.width+view.frame.origin.x)) return NO;
-    if(point->y < view.frame.origin.y) return NO;
-    if(point->y > (view.frame.size.height+view.frame.origin.y)) return NO;
-    NSLog(@"IN   DA");
-    return YES;
+    if(CGRectContainsPoint(view.frame, *point)){
+        NSLog(view.description);
+        return YES;
+    }
+       else{
+           NSLog(@"Just tapped");
+           return NO;
+       }
 }
 
 -(UIColor*)getColorAtPoint: (CGPoint*)point inView:(UIImageView*)view
@@ -73,7 +75,7 @@
         
         _oldColor = [self getRGBAsFromImageAtPoint:point];
     }
-    }
+   }
     return _oldColor;
     
 }
