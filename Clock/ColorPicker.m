@@ -60,15 +60,22 @@
     if(point->x > (view.frame.size.width+view.frame.origin.x)) return NO;
     if(point->y < view.frame.origin.y) return NO;
     if(point->y > (view.frame.size.height+view.frame.origin.y)) return NO;
+    NSLog(@"IN   DA");
     return YES;
 }
 
 -(UIColor*)getColorAtPoint: (CGPoint*)point inView:(UIImageView*)view
 {
-    if([self isInView:point inView:view]){
+    //if([self isInView:point inView:view]){
+    if(view.image == self.paletteImg) {
+        
+        if([self isInView:point inView:view]) {
+        
         _oldColor = [self getRGBAsFromImageAtPoint:point];
     }
+    }
     return _oldColor;
+    
 }
 
 @end
