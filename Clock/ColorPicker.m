@@ -10,27 +10,71 @@
 
 @implementation ColorPicker
 
+
+- (void)setup
+{
+    self.pickerImage = [[UIImageView alloc] initWithFrame:self.bounds];
+    [self addSubview:self.pickerImage];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder // invoked by IB on xib loading
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setup];
     }
     return self;
 }
 
-- (id)initWithPaletteImage:(UIImage *)paletteImage
+//- (id)initWithPaletteImage:(UIImage *)paletteImage
+//{
+//    self = [super init];
+//    if (self) {
+//        self.paletteImg = paletteImage;
+//    }
+//    return self;
+//}
+
+- (void)setPaletteImage:(UIImage *)paletteImage
 {
-    self = [super init];
-    if (self) {
-        self.paletteImg = paletteImage;
+    _paletteImage = paletteImage;
+    self.pickerImage.image = _paletteImage;
+    [self setNeedsDisplay];
+}
+
+-(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    return YES;
+}
+
+-(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    if (self.touchInside) {
+        NSLog(@"TOUCH INSIDE");
+        // now get color
+        CGPoint p = [touch locationInView:self];
+        _oldColor = [self getRGBAsFromImageAtPoint:&p];
+        NSLog(@"color: %@", _oldColor);
     }
-    return self;
+}
+
+- (void)cancelTrackingWithEvent:(UIEvent *)event
+{
 }
 
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point //count:(int)count
 {
-    CGImageRef imageRef = [_paletteImg CGImage];
+    CGImageRef imageRef = [_paletteImage CGImage];
     NSUInteger width = CGImageGetWidth(imageRef);
     NSUInteger height = CGImageGetHeight(imageRef);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -56,26 +100,28 @@
 
 -(BOOL)isInView: (CGPoint*)point inView:(UIImageView*)view
 {
-    if(point->x < view.frame.origin.x) return NO;
-    if(point->x > (view.frame.size.width+view.frame.origin.x)) return NO;
-    if(point->y < view.frame.origin.y) return NO;
-    if(point->y > (view.frame.size.height+view.frame.origin.y)) return NO;
-    NSLog(@"IN   DA");
-    return YES;
+    if(CGRectContainsPoint(view.frame, *point)){
+//        NSLog(view.description);
+        return YES;
+    }
+       else{
+           NSLog(@"Just tapped");
+           return NO;
+       }
 }
 
--(UIColor*)getColorAtPoint: (CGPoint*)point inView:(UIImageView*)view
-{
-    //if([self isInView:point inView:view]){
-    if(view.image == self.paletteImg) {
-        
-        if([self isInView:point inView:view]) {
-        
-        _oldColor = [self getRGBAsFromImageAtPoint:point];
-    }
-    }
-    return _oldColor;
-    
-}
+//-(UIColor*)getColorAtPoint: (CGPoint*)point inView:(UIImageView*)view
+//{
+//    //if([self isInView:point inView:view]){
+//    if(view.image == self.paletteImg) {
+//        
+//        if([self isInView:point inView:view]) {
+//        
+//        _oldColor = [self getRGBAsFromImageAtPoint:point];
+//    }
+//   }
+//    return _oldColor;
+//    
+//}
 
 @end

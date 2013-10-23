@@ -29,7 +29,8 @@
 {
     [super viewDidLoad];
     [self setColorBoxes];
-    _colorPicker = [[ColorPicker alloc] initWithPaletteImage:_colorPalette.image];
+//    _colorPicker = [[ColorPicker alloc] initWithPaletteImage:_colorPalette.image];
+    _colorPicker.paletteImage = [UIImage imageNamed:@"palette2"];
     _letterColorBox.backgroundColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
@@ -75,7 +76,5 @@
     _letterColorBox.backgroundColor = _defaultLetterColor;
     _sampleLbl.textColor = _lightColor;
 }
-
-	
 
 @end

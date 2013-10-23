@@ -258,10 +258,19 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
+					<string key="className">ColorPicker</string>
+					<string key="superclassName">UIControl</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ColorPicker.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">SettingsView</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="colorPalette">UIImageView</string>
+						<string key="colorPicker">ColorPicker</string>
 						<string key="colorSwitch">UISwitch</string>
 						<string key="letterColorBox">UIImageView</string>
 						<string key="sampleLbl">UILabel</string>
@@ -270,6 +279,10 @@
 						<object class="IBToOneOutletInfo" key="colorPalette">
 							<string key="name">colorPalette</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="colorPicker">
+							<string key="name">colorPicker</string>
+							<string key="candidateClassName">ColorPicker</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="colorSwitch">
 							<string key="name">colorSwitch</string>

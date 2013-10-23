@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ColorPicker : UIControl
-@property UIImage *paletteImg;
+
+@property UIImageView *pickerImage;
+@property (strong, nonatomic) UIImage *paletteImage;
 @property UIColor *oldColor;
 
 - (id)initWithPaletteImage:(UIImage*)paletteImage;
