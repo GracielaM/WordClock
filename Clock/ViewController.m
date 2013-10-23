@@ -36,6 +36,7 @@
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
 
 }
+
 -(void)formatLbls{
     _backGroundColor = [UIColor blackColor];
     self.lightColor = [UIColor whiteColor];
@@ -43,14 +44,12 @@
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
     [self setDefaultLetterColor];
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
 }
 
 -(void)lightTheWords{
@@ -166,6 +165,7 @@
     [self changeColor:_itsLbl :_lightColor];
     self.view.backgroundColor = _backGroundColor;
 }
+
 -(void)myViewControllerFinishedProcessing:(SettingsView *)vc
 {
     if(vc.lightColor != nil){

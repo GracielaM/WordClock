@@ -29,12 +29,11 @@
 {
     [super viewDidLoad];
     [self setColorBoxes];
-
     _colorPicker = [[ColorPicker alloc] initWithPaletteImage:_colorPalette.image];
     _letterColorBox.backgroundColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
-    
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -43,7 +42,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of adsdsdsny resources that can be recreated.
 }
-
 
 -(void)viewDidDisappear:(BOOL)animated
 {
@@ -56,17 +54,13 @@
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:touch.view];
     [self setColor:&location];
-    
-    
 }
 
 -(void)setColor: (CGPoint*)point
 {
-   
     if(_colorSwitch.on)
     {
         _lightColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
-        _onlyForTesting.backgroundColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
         [self setColorBoxes];
     }
     else
@@ -78,8 +72,8 @@
 
 -(void)setColorBoxes
 {
-    _letterColorBox.backgroundColor = _lightColor;
-    _sampleLbl.textColor = _defaultLetterColor;
+    _letterColorBox.backgroundColor = _defaultLetterColor;
+    _sampleLbl.textColor = _lightColor;
 }
 
 	
