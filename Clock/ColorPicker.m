@@ -110,18 +110,5 @@
        }
 }
 
-//-(UIColor*)getColorAtPoint: (CGPoint*)point inView:(UIImageView*)view
-//{
-//    //if([self isInView:point inView:view]){
-//    if(view.image == self.paletteImg) {
-//        
-//        if([self isInView:point inView:view]) {
-//        
-//        _oldColor = [self getRGBAsFromImageAtPoint:point];
-//    }
-//   }
-//    return _oldColor;
-//    
-//}
 
 @end
