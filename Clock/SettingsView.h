@@ -26,7 +26,8 @@
 @property UIColor* lightColor;
 @property UIColor* defaultLetterColor;
 @property (assign) id <MyViewControllerDelegate> delegate;
-@property ColorPicker* colorPicker;
+
+@property IBOutlet ColorPicker* colorPicker;
 
 -(void)setColor: (CGPoint*)point;
 -(void)setColorBoxes;
