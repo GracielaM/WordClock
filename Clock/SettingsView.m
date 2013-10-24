@@ -35,10 +35,8 @@
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
-    //NSLog(@"Light color");
-    //NSLog(_lightColor.description);
-    //NSLog(@"label color:");
-    NSLog(_sampleLbl.textColor.description);
+    NSLog(@"Light color: %@",_lightColor);
+    NSLog(@"LABEL color: %@",_sampleLbl.textColor);
 }
 
 - (void)didReceiveMemoryWarning
