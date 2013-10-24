@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A206561181938F80068545D /* palette3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A206560181938F80068545D /* palette3.png */; };
+		5A206561181938F80068545D /* palette33.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A206560181938F80068545D /* palette33.png */; };
+		5A20656318193FC80068545D /* palette3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A20656218193FC80068545D /* palette3.png */; };
 		5AB2DB41181566E30038B6F7 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2DB3F181566E30038B6F7 /* ColorPicker.m */; };
 		5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB40181566E30038B6F7 /* colorWheel.png */; };
 		5AB2DB461817C4620038B6F7 /* palette2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB451817C4620038B6F7 /* palette2.png */; };
@@ -30,7 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A206560181938F80068545D /* palette3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette3.png; sourceTree = "<group>"; };
+		5A206560181938F80068545D /* palette33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette33.png; sourceTree = "<group>"; };
+		5A20656218193FC80068545D /* palette3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette3.png; sourceTree = "<group>"; };
 		5AB2DB3E181566E30038B6F7 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		5AB2DB3F181566E30038B6F7 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
 		5AB2DB40181566E30038B6F7 /* colorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorWheel.png; sourceTree = "<group>"; };
@@ -133,7 +135,8 @@
 				5AB2DB49181937510038B6F7 /* palett.png */,
 				5ADFA7C517F1F16A00B64813 /* Clock-Info.plist */,
 				5ADFA7C617F1F16A00B64813 /* InfoPlist.strings */,
-				5A206560181938F80068545D /* palette3.png */,
+				5A20656218193FC80068545D /* palette3.png */,
+				5A206560181938F80068545D /* palette33.png */,
 				5AB2DB451817C4620038B6F7 /* palette2.png */,
 				5AB9B8A4180EB5810018A3C5 /* switchOn.png */,
 				5AB9B8A2180EB4820018A3C5 /* switchOff.png */,
@@ -208,7 +211,8 @@
 				5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */,
 				5AB2DB461817C4620038B6F7 /* palette2.png in Resources */,
 				5AB2DB4A181937510038B6F7 /* palett.png in Resources */,
-				5A206561181938F80068545D /* palette3.png in Resources */,
+				5A206561181938F80068545D /* palette33.png in Resources */,
+				5A20656318193FC80068545D /* palette3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
