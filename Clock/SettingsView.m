@@ -68,4 +68,9 @@
     _sampleLbl.textColor = _lightColor;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self setColor];
+    [self setColorBoxes];
+}
 @end
