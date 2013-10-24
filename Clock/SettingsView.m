@@ -29,13 +29,11 @@
 {
     [super viewDidLoad];
     [self setColorBoxes];
-//    _colorPicker = [[ColorPicker alloc] initWithPaletteImage:_colorPalette.image];
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette2"];
     _letterColorBox.backgroundColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
-
-    // Do any additional setup after loading the view from its nib.
+    [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,24 +47,17 @@
      [self.delegate myViewControllerFinishedProcessing:self];
 }
 
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint location = [touch locationInView:touch.view];
-    [self setColor:&location];
-}
 
--(void)setColor: (CGPoint*)point
+-(void)setColor
 {
     if(_colorSwitch.on)
     {
-        _lightColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
+        _lightColor = _colorPicker.oldColor;
         [self setColorBoxes];
     }
     else
     {
-        _defaultLetterColor = [_colorPicker getColorAtPoint:point inView:_colorPalette];
+        _defaultLetterColor = _colorPicker.oldColor;
         [self setColorBoxes];
     }
 }

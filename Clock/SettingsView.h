@@ -18,7 +18,6 @@
 @end
 @interface SettingsView : UIViewController
 
-//@property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
 @property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
 @property (strong, nonatomic) IBOutlet UILabel *sampleLbl;
 @property (strong, nonatomic) IBOutlet UIImageView *letterColorBox;
@@ -29,6 +28,6 @@
 
 @property IBOutlet ColorPicker* colorPicker;
 
--(void)setColor: (CGPoint*)point;
+-(void)setColor;
 -(void)setColorBoxes;
 @end

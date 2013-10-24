@@ -66,6 +66,8 @@
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
         NSLog(@"color: %@", _oldColor);
     }
+    else NSLog(@"not Inside");
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)cancelTrackingWithEvent:(UIEvent *)event
@@ -109,6 +111,5 @@
            return NO;
        }
 }
-
 
 @end
