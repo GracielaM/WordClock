@@ -148,9 +148,9 @@
 
 -(void)goToSettings
 {
-    SettingsView *settingsView =[[SettingsView alloc]initWithNibName:@"SettingsView" bundle:nil];
-    settingsView.lightColor = _lightColor;
-    settingsView.defaultLetterColor = _backGroundColor;
+    SettingsView *settingsView =[[SettingsView alloc]init];
+    settingsView.sampleLbl.textColor = _lightColor;
+    settingsView.letterColorBox.backgroundColor= _backGroundColor;
     settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
 }
