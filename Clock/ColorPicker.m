@@ -69,6 +69,19 @@
     else NSLog(@"not Inside");
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
+-(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    if (self.touchInside) {
+        NSLog(@"Drag INSIDE");
+        // now get color
+        CGPoint p = [touch locationInView:self];
+        _oldColor = [self getRGBAsFromImageAtPoint:&p];
+        NSLog(@"color: %@", _oldColor);
+    }
+    else NSLog(@"not Inside");
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    return (YES);
+}
 
 - (void)cancelTrackingWithEvent:(UIEvent *)event
 {

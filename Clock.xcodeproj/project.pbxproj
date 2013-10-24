@@ -12,6 +12,7 @@
 		5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB40181566E30038B6F7 /* colorWheel.png */; };
 		5AB2DB461817C4620038B6F7 /* palette2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB451817C4620038B6F7 /* palette2.png */; };
 		5AB2DB4A181937510038B6F7 /* palett.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB49181937510038B6F7 /* palett.png */; };
+		5AB2DB4C18193F860038B6F7 /* color-picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB4B18193F860038B6F7 /* color-picker.png */; };
 		5AB5A7D417F46D9B00A3CA9F /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D217F46D9B00A3CA9F /* SettingsView.m */; };
 		5AB5A7D517F46D9B00A3CA9F /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D317F46D9B00A3CA9F /* SettingsView.xib */; };
 		5AB9B8A3180EB4820018A3C5 /* switchOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB9B8A2180EB4820018A3C5 /* switchOff.png */; };
@@ -36,6 +37,7 @@
 		5AB2DB40181566E30038B6F7 /* colorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorWheel.png; sourceTree = "<group>"; };
 		5AB2DB451817C4620038B6F7 /* palette2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette2.png; sourceTree = "<group>"; };
 		5AB2DB49181937510038B6F7 /* palett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palett.png; sourceTree = "<group>"; };
+		5AB2DB4B18193F860038B6F7 /* color-picker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-picker.png"; sourceTree = "<group>"; };
 		5AB5A7D117F46D9B00A3CA9F /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
 		5AB5A7D217F46D9B00A3CA9F /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
 		5AB5A7D317F46D9B00A3CA9F /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				5AB2DB49181937510038B6F7 /* palett.png */,
+				5AB2DB4B18193F860038B6F7 /* color-picker.png */,
 				5ADFA7C517F1F16A00B64813 /* Clock-Info.plist */,
 				5ADFA7C617F1F16A00B64813 /* InfoPlist.strings */,
 				5A206560181938F80068545D /* palette3.png */,
@@ -209,6 +212,7 @@
 				5AB2DB461817C4620038B6F7 /* palette2.png in Resources */,
 				5AB2DB4A181937510038B6F7 /* palett.png in Resources */,
 				5A206561181938F80068545D /* palette3.png in Resources */,
+				5AB2DB4C18193F860038B6F7 /* color-picker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
