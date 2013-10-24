@@ -150,7 +150,7 @@
 {
     SettingsView *settingsView =[[SettingsView alloc]init];
     settingsView.lightColor = _lightColor;
-    settingsView.defaultLetterColor = _backGroundColor;
+    settingsView.backGroundColor= _backGroundColor;
     settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
 }
@@ -171,8 +171,8 @@
     if(vc.lightColor != nil){
         self.lightColor = vc.lightColor;
     }
-    if(vc.defaultLetterColor != nil){
-        self.backGroundColor = vc.defaultLetterColor;
+    if(vc.backGroundColor != nil){
+        self.backGroundColor = vc.backGroundColor;
     }
     [self.navigationController popToRootViewControllerAnimated:NO];
 }

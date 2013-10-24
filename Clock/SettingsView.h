@@ -23,11 +23,12 @@
 @property (strong, nonatomic) IBOutlet UIImageView *letterColorBox;
 @property (strong, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property UIColor* lightColor;
-@property UIColor* defaultLetterColor;
+@property UIColor* backGroundColor;
 @property (assign) id <MyViewControllerDelegate> delegate;
 
 @property IBOutlet ColorPicker* colorPicker;
 
 -(void)setColor;
 -(void)setColorBoxes;
+
 @end

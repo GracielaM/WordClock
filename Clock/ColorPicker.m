@@ -69,6 +69,7 @@
     else NSLog(@"not Inside");
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
+
 -(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.touchInside) {

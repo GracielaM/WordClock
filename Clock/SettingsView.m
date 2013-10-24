@@ -30,10 +30,15 @@
     [super viewDidLoad];
     [self setColorBoxes];
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
-    _letterColorBox.backgroundColor = _lightColor;
+    _letterColorBox.backgroundColor = _backGroundColor;
+    _sampleLbl.textColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
+    //NSLog(@"Light color");
+    //NSLog(_lightColor.description);
+    //NSLog(@"label color:");
+    NSLog(_sampleLbl.textColor.description);
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,14 +62,14 @@
     }
     else
     {
-        _defaultLetterColor = _colorPicker.oldColor;
+        _backGroundColor = _colorPicker.oldColor;
         [self setColorBoxes];
     }
 }
 
 -(void)setColorBoxes
 {
-    _letterColorBox.backgroundColor = _defaultLetterColor;
+    _letterColorBox.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
 }
 
