@@ -28,8 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     [self setDefaultsColors];
-    [self loadDefaultsColors];
     [self setColorBoxes];
    
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
@@ -38,7 +36,7 @@
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
-    NSLog(@"Light color: %@",_lightColor);
+    //NSLog(@"Back color: %@",_backGroundColor);
     NSLog(@"LABEL color: %@",_sampleLbl.textColor);
 }
 
@@ -85,27 +83,34 @@
 
 -(void)setDefaultsColors
 {
+    NSLog(@"LIGHT color: %@",_lightColor);
+    NSLog(@"BACK color: %@",_backGroundColor);
     NSLog(@"Saving data...");
     const CGFloat  *componentsLight = CGColorGetComponents(_lightColor.CGColor);
     const CGFloat  *componentsBack = CGColorGetComponents(_backGroundColor.CGColor);
-    [_colors setFloat:componentsLight[0]  forKey:@"lcr"];
-    [_colors setFloat:componentsLight[1]  forKey:@"lcg"];
-    [_colors setFloat:componentsLight[2]  forKey:@"lcb"];
-    [_colors setFloat:componentsLight[3]  forKey:@"lca"];
-    [_colors setFloat:componentsBack[0]  forKey:@"bcr"];
-    [_colors setFloat:componentsBack[1]  forKey:@"bcg"];
-    [_colors setFloat:componentsBack[2]  forKey:@"bcb"];
-    [_colors setFloat:componentsBack[3]  forKey:@"bca"];
-
-    //[_colors synchronize];
+    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
+    [defaultsColors setFloat:componentsLight[0]  forKey:@"lcr"];
+    [defaultsColors setFloat:componentsLight[1]  forKey:@"lcg"];
+    [defaultsColors setFloat:componentsLight[2]  forKey:@"lcb"];
+    [defaultsColors setFloat:componentsLight[3]  forKey:@"lca"];
+    [defaultsColors setFloat:componentsBack[0]  forKey:@"bcr"];
+    [defaultsColors setFloat:componentsBack[1]  forKey:@"bcg"];
+    [defaultsColors setFloat:componentsBack[2]  forKey:@"bcb"];
+    [defaultsColors setFloat:componentsBack[3]  forKey:@"bca"];
+    [defaultsColors synchronize];
     
 }
 
 -(void)loadDefaultsColors
 {
     NSLog(@"Loading data...");
-    _lightColor = [UIColor colorWithRed:[_colors floatForKey:@"cr"] green:[_colors floatForKey:@"cg"] blue:[_colors floatForKey:@"cb"] alpha:[_colors floatForKey:@"ca"]];
-    _backGroundColor = [UIColor colorWithRed:[_colors floatForKey:@"bcr"] green:[_colors floatForKey:@"bcg"] blue:[_colors floatForKey:@"bcb"] alpha:[_colors floatForKey:@"bca"]];
+    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
+    _lightColor = [UIColor colorWithRed:[defaultsColors floatForKey:@"cr"] green:[defaultsColors floatForKey:@"cg"] blue:[defaultsColors floatForKey:@"cb"] alpha:[defaultsColors floatForKey:@"ca"]];
+    NSLog(@"Loaded LIGHT color: %@",_lightColor);
+
+    _backGroundColor = [UIColor colorWithRed:[defaultsColors floatForKey:@"bcr"] green:[defaultsColors floatForKey:@"bcg"] blue:[defaultsColors floatForKey:@"bcb"] alpha:[defaultsColors floatForKey:@"bca"]];
+     NSLog(@"Loaded BACK color: %@",_backGroundColor);
+
 }
 
 @end
