@@ -49,9 +49,11 @@
 @property(strong) UIColor* backGroundColor;
 -(void)myViewControllerFinishedProcessing:(SettingsView *)vc;
 -(void) goToSettings ;
--(void)setDefaultLetterColor;
+-(void)setLetterColor;
 -(NSInteger)currentHour;
 -(NSInteger)currentMinutes;
 -(void) lightTheWords;
 -(void) changeColor: (UILabel *)lblName :(UIColor*)color;
+-(void)setLetterShadow;
+
 @end

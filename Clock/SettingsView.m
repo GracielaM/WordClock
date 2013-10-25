@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     [self setColorBoxes];
+    [self loadDefaultsColors];
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
     _letterColorBox.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
@@ -37,6 +38,7 @@
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
     NSLog(@"Light color: %@",_lightColor);
     NSLog(@"LABEL color: %@",_sampleLbl.textColor);
+    [self loadDefaultsColors];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +49,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
+    [self setDefaultsColors];
      [self.delegate myViewControllerFinishedProcessing:self];
 }
 
@@ -73,7 +76,26 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self loadDefaultsColors];
     [self setColor];
     [self setColorBoxes];
 }
+
+-(void)setDefaultsColors
+{
+    NSData *lightColor = [NSKeyedArchiver archivedDataWithRootObject:_lightColor];
+    NSData *backGroundColor = [NSKeyedArchiver archivedDataWithRootObject:_backGroundColor];
+    [_colors setObject:lightColor forKey:@"lightColor"];
+    [_colors setObject:backGroundColor forKey:@"backGroundColor"];
+    [_colors synchronize];
+    NSLog(@"Data saved");
+}
+-(void)loadDefaultsColors
+{
+    NSData *lightColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"lightColor"];
+    _lightColor= [NSKeyedUnarchiver unarchiveObjectWithData:lightColorData];
+    NSData *backGroundColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"backGroundColor"];
+    _backGroundColor= [NSKeyedUnarchiver unarchiveObjectWithData:backGroundColorData];
+}
+
 @end

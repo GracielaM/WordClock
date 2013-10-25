@@ -24,11 +24,14 @@
 @property (strong, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property UIColor* lightColor;
 @property UIColor* backGroundColor;
+@property NSUserDefaults *colors;
 @property (assign) id <MyViewControllerDelegate> delegate;
 
 @property IBOutlet ColorPicker* colorPicker;
 
 -(void)setColor;
 -(void)setColorBoxes;
+-(void)loadDefaultsColors;
+-(void)setDefaultsColors;
 
 @end

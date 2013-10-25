@@ -24,6 +24,7 @@
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:_half, _ten, _quarter, _twenty, _five, _minutes, _to, _past, _oclock,_tenQual, _fiveQual, nil];
     [self formatLbls];
+    [self setLetterShadow];
    
     UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings)];
     self.navigationItem.rightBarButtonItem = adminButton;
@@ -43,7 +44,7 @@
     self.backGroundColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
-    [self setDefaultLetterColor];
+    [self setLetterColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,7 +55,7 @@
 
 -(void)lightTheWords{
     int hour = [self currentHour];
-    [self setDefaultLetterColor];
+    [self setLetterColor];
        
     if ( [self currentMinutes] >= 55) {
         // minutes = @"five to";
@@ -137,7 +138,7 @@
     return minute;
 }
 
--(void)setDefaultLetterColor {
+-(void)setLetterColor {
     for(int i=0;i<[self.numbers count];i++){
         [self changeColor:[self.numbers objectAtIndex:i]:[UIColor colorWithWhite:1 alpha:0.2]];
     }
@@ -145,6 +146,19 @@
         [self changeColor:[self.qualifiers objectAtIndex:i]:[UIColor colorWithWhite:1 alpha:0.2]];
     }
 }
+
+-(void)setLetterShadow {
+    UILabel *tempLabel = [[UILabel alloc] init];
+    for(tempLabel in self.numbers){
+        tempLabel.shadowColor = [UIColor grayColor];
+        tempLabel.shadowOffset = CGSizeMake(1.0, 2.0);
+    }
+    for(tempLabel in self.qualifiers){
+        tempLabel.shadowColor = [UIColor grayColor];
+        tempLabel.shadowOffset = CGSizeMake(1.0, 2.0);
+    }
+}
+
 
 -(void)goToSettings
 {
