@@ -28,8 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setColorBoxes];
+     [self setDefaultsColors];
     [self loadDefaultsColors];
+    [self setColorBoxes];
+   
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
     _letterColorBox.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
@@ -38,7 +40,6 @@
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
     NSLog(@"Light color: %@",_lightColor);
     NSLog(@"LABEL color: %@",_sampleLbl.textColor);
-    [self loadDefaultsColors];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,8 +50,9 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self setDefaultsColors];
+    
      [self.delegate myViewControllerFinishedProcessing:self];
+    [self setDefaultsColors];
 }
 
 
@@ -83,19 +85,27 @@
 
 -(void)setDefaultsColors
 {
-    NSData *lightColor = [NSKeyedArchiver archivedDataWithRootObject:_lightColor];
-    NSData *backGroundColor = [NSKeyedArchiver archivedDataWithRootObject:_backGroundColor];
-    [_colors setObject:lightColor forKey:@"lightColor"];
-    [_colors setObject:backGroundColor forKey:@"backGroundColor"];
-    [_colors synchronize];
-    NSLog(@"Data saved");
+    NSLog(@"Saving data...");
+    const CGFloat  *componentsLight = CGColorGetComponents(_lightColor.CGColor);
+    const CGFloat  *componentsBack = CGColorGetComponents(_backGroundColor.CGColor);
+    [_colors setFloat:componentsLight[0]  forKey:@"lcr"];
+    [_colors setFloat:componentsLight[1]  forKey:@"lcg"];
+    [_colors setFloat:componentsLight[2]  forKey:@"lcb"];
+    [_colors setFloat:componentsLight[3]  forKey:@"lca"];
+    [_colors setFloat:componentsBack[0]  forKey:@"bcr"];
+    [_colors setFloat:componentsBack[1]  forKey:@"bcg"];
+    [_colors setFloat:componentsBack[2]  forKey:@"bcb"];
+    [_colors setFloat:componentsBack[3]  forKey:@"bca"];
+
+    //[_colors synchronize];
+    
 }
+
 -(void)loadDefaultsColors
 {
-    NSData *lightColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"lightColor"];
-    _lightColor= [NSKeyedUnarchiver unarchiveObjectWithData:lightColorData];
-    NSData *backGroundColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"backGroundColor"];
-    _backGroundColor= [NSKeyedUnarchiver unarchiveObjectWithData:backGroundColorData];
+    NSLog(@"Loading data...");
+    _lightColor = [UIColor colorWithRed:[_colors floatForKey:@"cr"] green:[_colors floatForKey:@"cg"] blue:[_colors floatForKey:@"cb"] alpha:[_colors floatForKey:@"ca"]];
+    _backGroundColor = [UIColor colorWithRed:[_colors floatForKey:@"bcr"] green:[_colors floatForKey:@"bcg"] blue:[_colors floatForKey:@"bcb"] alpha:[_colors floatForKey:@"bca"]];
 }
 
 @end
