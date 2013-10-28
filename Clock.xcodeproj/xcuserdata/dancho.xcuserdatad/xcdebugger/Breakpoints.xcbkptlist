@@ -8,32 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clock/SettingsViewController.m"
-         timestampString = "404660831.191592"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
-         landmarkName = "-loadDefaultsColors"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Clock/SettingsViewController.m"
-         timestampString = "404660831.191592"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
-         landmarkName = "-setDefaultsColors"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Clock/SettingsViewController.m"
          timestampString = "404658949.306774"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"

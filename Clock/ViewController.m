@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "SettingsViewController.h"
 
-@interface ViewController () <MyViewControllerDelegate>
+@interface ViewController ()
 
 @end
 
@@ -119,7 +119,6 @@
 
 - (NSInteger)currentHour
 {
-    // In practice, these calls can be combined
     NSDate *now = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
@@ -164,7 +163,6 @@
     SettingsViewController *settingsView =[[SettingsViewController alloc]init];
     settingsView.lightColor = _lightColor;
     settingsView.backGroundColor = _backGroundColor;
-    settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
 }
 
@@ -178,17 +176,6 @@
     [self formatLbls];
     
 }
-
-//-(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc
-//{
-//    if(vc.lightColor != nil){
-//        self.lightColor = vc.lightColor;
-//    }
-//    if(vc.backGroundColor != nil){
-//        self.backGroundColor = vc.backGroundColor;
-//    }
-//    [self.navigationController popToRootViewControllerAnimated:NO];
-//}
 
 -(void)setDefaultsColors
 {

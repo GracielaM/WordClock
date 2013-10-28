@@ -10,13 +10,6 @@
 
 @class ColorPicker;
 
-@protocol MyViewControllerDelegate <NSObject>
-
-@optional
-
-- (void)myViewControllerFinishedProcessing:(UIViewController *)controller;
-
-@end
 @interface SettingsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
@@ -26,7 +19,6 @@
 @property UIColor* lightColor;
 @property UIColor* backGroundColor;
 @property NSUserDefaults *colors;
-@property (assign) id <MyViewControllerDelegate> delegate;
 
 @property IBOutlet ColorPicker* colorPicker;
 

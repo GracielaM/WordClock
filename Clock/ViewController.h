@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "SettingsView.h"
 
 @class SettingsViewController;
 @protocol MyViewControllerDelegate;
@@ -38,11 +37,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *twelve;
 @property (strong, nonatomic) IBOutlet UILabel *itsLbl;
 @property (strong, nonatomic) IBOutlet UILabel *oclock;
-@property (assign) id <MyViewControllerDelegate> delegate;
 
 @property(strong) UIColor* lightColor;
 @property(strong) UIColor* backGroundColor;
--(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc;
 -(void) goToSettings ;
 -(void)setLetterColor;
 -(NSInteger)currentHour;

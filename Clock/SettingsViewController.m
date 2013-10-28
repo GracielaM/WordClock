@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -35,7 +35,6 @@
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
-    //NSLog(@"Back color: %@",_backGroundColor);
     NSLog(@"LABEL color: %@",_sampleLbl.textColor);
 }
 
@@ -47,7 +46,6 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    //[self.delegate myViewControllerFinishedProcessing:self];
     [self setDefaultsColors];
 }
 
