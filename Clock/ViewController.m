@@ -38,8 +38,7 @@
 }
 
 -(void)formatLbls{
-    _backGroundColor = [UIColor blackColor];
-    _lightColor = [UIColor whiteColor];
+    [self loadDefaultsColors];
     self.backGroundColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
@@ -179,15 +178,30 @@
     self.view.backgroundColor = _backGroundColor;
 }
 
--(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc
+//-(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc
+//{
+//    if(vc.lightColor != nil){
+//        self.lightColor = vc.lightColor;
+//    }
+//    if(vc.backGroundColor != nil){
+//        self.backGroundColor = vc.backGroundColor;
+//    }
+//    [self.navigationController popToRootViewControllerAnimated:NO];
+//}
+
+-(void)setDefaultsColors
 {
-    if(vc.lightColor != nil){
-        self.lightColor = vc.lightColor;
-    }
-    if(vc.backGroundColor != nil){
-        self.backGroundColor = vc.backGroundColor;
-    }
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
+    [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_lightColor] forKey:@"lightColor"];
+    [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_backGroundColor] forKey:@"backGroundColor"];
+    [defaultsColors synchronize];
+}
+
+-(void)loadDefaultsColors
+{
+    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
+    _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
+    _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
 }
 
 @end

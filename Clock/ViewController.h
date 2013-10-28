@@ -50,5 +50,7 @@
 -(void) lightTheWords;
 -(void) changeColor: (UILabel *)lblName :(UIColor*)color;
 -(void)setLetterShadow;
+-(void)setDefaultsColors;
+-(void)loadDefaultsColors;
 
 @end

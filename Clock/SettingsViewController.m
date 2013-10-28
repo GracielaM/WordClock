@@ -47,7 +47,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self.delegate myViewControllerFinishedProcessing:self];
+    //[self.delegate myViewControllerFinishedProcessing:self];
     [self setDefaultsColors];
 }
 
@@ -77,21 +77,15 @@
 }
 
 -(void)setDefaultsColors
-{
-    NSLog(@"LIGHT color: %@",_lightColor);
-    NSLog(@"BACK color: %@",_backGroundColor);
-    NSLog(@"Saving data...");
-    
+{   
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_lightColor] forKey:@"lightColor"];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_backGroundColor] forKey:@"backGroundColor"];
-    
     [defaultsColors synchronize];
 }
 
 -(void)loadDefaultsColors
 {
-    NSLog(@"Loading data...");
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
     _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
