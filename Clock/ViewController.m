@@ -39,10 +39,11 @@
 
 -(void)formatLbls{
     [self loadDefaultsColors];
-    self.backGroundColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
     [self setLetterColor];
+    [self changeColor:_itsLbl :_lightColor];
+    self.view.backgroundColor = _backGroundColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,7 +130,7 @@
 
 - (NSInteger)currentMinutes
 {
-        NSDate *now = [NSDate date];
+    NSDate *now = [NSDate date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *dateComponents = [gregorian components:(NSHourCalendarUnit  | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:now];
     NSInteger minute = [dateComponents minute];
@@ -174,8 +175,8 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
-    [self changeColor:_itsLbl :_lightColor];
-    self.view.backgroundColor = _backGroundColor;
+    [self formatLbls];
+    
 }
 
 //-(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc
