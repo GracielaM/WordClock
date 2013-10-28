@@ -20,7 +20,6 @@
 - (void)viewDidLoad
 {   
     [super viewDidLoad];
-    _backGroundColor = [UIColor blackColor];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:_half, _ten, _quarter, _twenty, _five, _minutes, _to, _past, _oclock,_tenQual, _fiveQual, nil];
     [self formatLbls];
@@ -40,7 +39,7 @@
 
 -(void)formatLbls{
     _backGroundColor = [UIColor blackColor];
-    self.lightColor = [UIColor whiteColor];
+    _lightColor = [UIColor whiteColor];
     self.backGroundColor = [UIColor colorWithWhite:1 alpha:0.2];
     self.itsLbl.textColor = self.lightColor;
     self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
@@ -164,7 +163,7 @@
 {
     SettingsView *settingsView =[[SettingsView alloc]init];
     settingsView.lightColor = _lightColor;
-    settingsView.backGroundColor= _backGroundColor;
+    settingsView.backGroundColor = _backGroundColor;
     settingsView.delegate = self;
     [self.navigationController pushViewController:settingsView animated:NO];
 }

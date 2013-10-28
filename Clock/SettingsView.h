@@ -13,7 +13,7 @@
 
 @optional
 
-- (void)myViewControllerFinishedProcessing:(ViewController *)controller;
+- (void)myViewControllerFinishedProcessing:(ViewController*)controller;
 
 @end
 @interface SettingsView : UIViewController
