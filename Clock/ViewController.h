@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SettingsView;
+//#import "SettingsView.h"
 
-@protocol MyViewControllerDelegate <NSObject>
-
-@optional
-
-- (void)ViewControllerFinishedProcessing:(SettingsView *)controller;
-
-@end
+@class SettingsViewController;
+@protocol MyViewControllerDelegate;
 
 @interface ViewController : UIViewController
 
@@ -47,7 +42,7 @@
 
 @property(strong) UIColor* lightColor;
 @property(strong) UIColor* backGroundColor;
--(void)myViewControllerFinishedProcessing:(SettingsView *)vc;
+-(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc;
 -(void) goToSettings ;
 -(void)setLetterColor;
 -(NSInteger)currentHour;

@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ViewController;
+
 @class ColorPicker;
+
 @protocol MyViewControllerDelegate <NSObject>
 
 @optional
 
-- (void)myViewControllerFinishedProcessing:(ViewController*)controller;
+- (void)myViewControllerFinishedProcessing:(UIViewController *)controller;
 
 @end
-@interface SettingsView : UIViewController
+@interface SettingsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
 @property (strong, nonatomic) IBOutlet UILabel *sampleLbl;
@@ -30,7 +31,6 @@
 @property IBOutlet ColorPicker* colorPicker;
 
 -(void)setColor;
--(void)setColorBoxes;
 -(void)loadDefaultsColors;
 -(void)setDefaultsColors;
 

@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 graci. All rights reserved.
 //
 
-#import "SettingsView.h"
+#import "SettingsViewController.h"
 #import "ViewController.h"
 #import "ColorPicker.h"
 
-@interface SettingsView ()
+@interface SettingsViewController ()
 
 @end
 
-@implementation SettingsView
+@implementation SettingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setColorBoxes];
    
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
     _letterColorBox.backgroundColor = _backGroundColor;
@@ -48,8 +47,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    
-     [self.delegate myViewControllerFinishedProcessing:self];
+    [self.delegate myViewControllerFinishedProcessing:self];
     [self setDefaultsColors];
 }
 
@@ -59,26 +57,23 @@
     if(_colorSwitch.on)
     {
         _lightColor = _colorPicker.oldColor;
-        [self setColorBoxes];
+        _sampleLbl.textColor = _lightColor;
     }
     else
     {
         _backGroundColor = _colorPicker.oldColor;
-        [self setColorBoxes];
+        _letterColorBox.backgroundColor = _backGroundColor;
     }
-}
-
--(void)setColorBoxes
-{
-    _letterColorBox.backgroundColor = _backGroundColor;
-    _sampleLbl.textColor = _lightColor;
+    
+    [self setDefaultsColors];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadDefaultsColors];
-    [self setColor];
-    [self setColorBoxes];
+    _sampleLbl.textColor = _lightColor;
+    _letterColorBox.backgroundColor = _backGroundColor;
 }
 
 -(void)setDefaultsColors
@@ -86,31 +81,20 @@
     NSLog(@"LIGHT color: %@",_lightColor);
     NSLog(@"BACK color: %@",_backGroundColor);
     NSLog(@"Saving data...");
-    const CGFloat  *componentsLight = CGColorGetComponents(_lightColor.CGColor);
-    const CGFloat  *componentsBack = CGColorGetComponents(_backGroundColor.CGColor);
-    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
-    [defaultsColors setFloat:componentsLight[0]  forKey:@"lcr"];
-    [defaultsColors setFloat:componentsLight[1]  forKey:@"lcg"];
-    [defaultsColors setFloat:componentsLight[2]  forKey:@"lcb"];
-    [defaultsColors setFloat:componentsLight[3]  forKey:@"lca"];
-    [defaultsColors setFloat:componentsBack[0]  forKey:@"bcr"];
-    [defaultsColors setFloat:componentsBack[1]  forKey:@"bcg"];
-    [defaultsColors setFloat:componentsBack[2]  forKey:@"bcb"];
-    [defaultsColors setFloat:componentsBack[3]  forKey:@"bca"];
-    [defaultsColors synchronize];
     
+    NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
+    [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_lightColor] forKey:@"lightColor"];
+    [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_backGroundColor] forKey:@"backGroundColor"];
+    
+    [defaultsColors synchronize];
 }
 
 -(void)loadDefaultsColors
 {
     NSLog(@"Loading data...");
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
-    _lightColor = [UIColor colorWithRed:[defaultsColors floatForKey:@"cr"] green:[defaultsColors floatForKey:@"cg"] blue:[defaultsColors floatForKey:@"cb"] alpha:[defaultsColors floatForKey:@"ca"]];
-    NSLog(@"Loaded LIGHT color: %@",_lightColor);
-
-    _backGroundColor = [UIColor colorWithRed:[defaultsColors floatForKey:@"bcr"] green:[defaultsColors floatForKey:@"bcg"] blue:[defaultsColors floatForKey:@"bcb"] alpha:[defaultsColors floatForKey:@"bca"]];
-     NSLog(@"Loaded BACK color: %@",_backGroundColor);
-
+    _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
+    _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
 }
 
 @end

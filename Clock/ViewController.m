@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "SettingsView.h"
+#import "SettingsViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <MyViewControllerDelegate>
 
 @end
 
@@ -149,19 +149,19 @@
 -(void)setLetterShadow {
     UILabel *tempLabel = [[UILabel alloc] init];
     for(tempLabel in self.numbers){
-        tempLabel.shadowColor = [UIColor grayColor];
-        tempLabel.shadowOffset = CGSizeMake(1.0, 2.0);
+        tempLabel.shadowColor = [UIColor darkGrayColor];
+        tempLabel.shadowOffset = CGSizeMake(1.0, 1.0);
     }
     for(tempLabel in self.qualifiers){
-        tempLabel.shadowColor = [UIColor grayColor];
-        tempLabel.shadowOffset = CGSizeMake(1.0, 2.0);
+        tempLabel.shadowColor = [UIColor darkGrayColor];
+        tempLabel.shadowOffset = CGSizeMake(1.0, 1.0);
     }
 }
 
 
 -(void)goToSettings
 {
-    SettingsView *settingsView =[[SettingsView alloc]init];
+    SettingsViewController *settingsView =[[SettingsViewController alloc]init];
     settingsView.lightColor = _lightColor;
     settingsView.backGroundColor = _backGroundColor;
     settingsView.delegate = self;
@@ -179,7 +179,7 @@
     self.view.backgroundColor = _backGroundColor;
 }
 
--(void)myViewControllerFinishedProcessing:(SettingsView *)vc
+-(void)myViewControllerFinishedProcessing:(SettingsViewController *)vc
 {
     if(vc.lightColor != nil){
         self.lightColor = vc.lightColor;

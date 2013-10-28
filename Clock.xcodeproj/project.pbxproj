@@ -13,8 +13,8 @@
 		5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB40181566E30038B6F7 /* colorWheel.png */; };
 		5AB2DB461817C4620038B6F7 /* palette2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB451817C4620038B6F7 /* palette2.png */; };
 		5AB2DB4A181937510038B6F7 /* palett.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB49181937510038B6F7 /* palett.png */; };
-		5AB5A7D417F46D9B00A3CA9F /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D217F46D9B00A3CA9F /* SettingsView.m */; };
-		5AB5A7D517F46D9B00A3CA9F /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D317F46D9B00A3CA9F /* SettingsView.xib */; };
+		5AB5A7D417F46D9B00A3CA9F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D217F46D9B00A3CA9F /* SettingsViewController.m */; };
+		5AB5A7D517F46D9B00A3CA9F /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D317F46D9B00A3CA9F /* SettingsViewController.xib */; };
 		5AB9B8A3180EB4820018A3C5 /* switchOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB9B8A2180EB4820018A3C5 /* switchOff.png */; };
 		5AB9B8A5180EB5810018A3C5 /* switchOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB9B8A4180EB5810018A3C5 /* switchOn.png */; };
 		5ADFA7BE17F1F16A00B64813 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADFA7BD17F1F16A00B64813 /* UIKit.framework */; };
@@ -38,9 +38,9 @@
 		5AB2DB40181566E30038B6F7 /* colorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorWheel.png; sourceTree = "<group>"; };
 		5AB2DB451817C4620038B6F7 /* palette2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette2.png; sourceTree = "<group>"; };
 		5AB2DB49181937510038B6F7 /* palett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palett.png; sourceTree = "<group>"; };
-		5AB5A7D117F46D9B00A3CA9F /* SettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsView.h; sourceTree = "<group>"; };
-		5AB5A7D217F46D9B00A3CA9F /* SettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsView.m; sourceTree = "<group>"; };
-		5AB5A7D317F46D9B00A3CA9F /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
+		5AB5A7D117F46D9B00A3CA9F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5AB5A7D217F46D9B00A3CA9F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5AB5A7D317F46D9B00A3CA9F /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		5AB9B8A2180EB4820018A3C5 /* switchOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOff.png; sourceTree = "<group>"; };
 		5AB9B8A4180EB5810018A3C5 /* switchOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchOn.png; sourceTree = "<group>"; };
 		5ADFA7BA17F1F16A00B64813 /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,9 +121,9 @@
 				5ADFA7D517F1F16A00B64813 /* ViewController.h */,
 				5ADFA7D617F1F16A00B64813 /* ViewController.m */,
 				5ADFA7D817F1F16A00B64813 /* ViewController.xib */,
-				5AB5A7D117F46D9B00A3CA9F /* SettingsView.h */,
-				5AB5A7D217F46D9B00A3CA9F /* SettingsView.m */,
-				5AB5A7D317F46D9B00A3CA9F /* SettingsView.xib */,
+				5AB5A7D117F46D9B00A3CA9F /* SettingsViewController.h */,
+				5AB5A7D217F46D9B00A3CA9F /* SettingsViewController.m */,
+				5AB5A7D317F46D9B00A3CA9F /* SettingsViewController.xib */,
 				5ADFA7C417F1F16A00B64813 /* Supporting Files */,
 			);
 			path = Clock;
@@ -205,7 +205,7 @@
 				5ADFA7D217F1F16A00B64813 /* Default@2x.png in Resources */,
 				5ADFA7D417F1F16A00B64813 /* Default-568h@2x.png in Resources */,
 				5ADFA7DA17F1F16A00B64813 /* ViewController.xib in Resources */,
-				5AB5A7D517F46D9B00A3CA9F /* SettingsView.xib in Resources */,
+				5AB5A7D517F46D9B00A3CA9F /* SettingsViewController.xib in Resources */,
 				5AB9B8A3180EB4820018A3C5 /* switchOff.png in Resources */,
 				5AB9B8A5180EB5810018A3C5 /* switchOn.png in Resources */,
 				5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */,
@@ -226,7 +226,7 @@
 				5ADFA7CA17F1F16A00B64813 /* main.m in Sources */,
 				5ADFA7CE17F1F16A00B64813 /* AppDelegate.m in Sources */,
 				5ADFA7D717F1F16A00B64813 /* ViewController.m in Sources */,
-				5AB5A7D417F46D9B00A3CA9F /* SettingsView.m in Sources */,
+				5AB5A7D417F46D9B00A3CA9F /* SettingsViewController.m in Sources */,
 				5AB2DB41181566E30038B6F7 /* ColorPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

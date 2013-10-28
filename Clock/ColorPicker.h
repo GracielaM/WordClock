@@ -14,6 +14,5 @@
 @property (strong, nonatomic) UIImage *paletteImage;
 @property UIColor *oldColor;
 
-- (id)initWithPaletteImage:(UIImage*)paletteImage;
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point;
 @end 

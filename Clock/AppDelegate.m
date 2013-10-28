@@ -10,7 +10,7 @@
 
 #import "ViewController.h"
 
-#import "SettingsView.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
