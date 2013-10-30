@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *colorPalette;
 @property (strong, nonatomic) IBOutlet UILabel *sampleLbl;
-@property (strong, nonatomic) IBOutlet UIImageView *letterColorBox;
 @property (strong, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property UIColor* lightColor;
 @property UIColor* backGroundColor;

@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
    
-    _colorPicker.paletteImage = [UIImage imageNamed:@"palette3"];
-    _letterColorBox.backgroundColor = _backGroundColor;
+    _colorPicker.paletteImage = [UIImage imageNamed:@"palette"];
+    _sampleLbl.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
@@ -60,7 +60,7 @@
     else
     {
         _backGroundColor = _colorPicker.oldColor;
-        _letterColorBox.backgroundColor = _backGroundColor;
+        _sampleLbl.backgroundColor = _backGroundColor;
     }
     
     [self setDefaultsColors];
@@ -71,7 +71,7 @@
 {
     [self loadDefaultsColors];
     _sampleLbl.textColor = _lightColor;
-    _letterColorBox.backgroundColor = _backGroundColor;
+    _sampleLbl.backgroundColor = _backGroundColor;
 }
 
 -(void)setDefaultsColors

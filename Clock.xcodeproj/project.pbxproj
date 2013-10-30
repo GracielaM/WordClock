@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A206561181938F80068545D /* palette33.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A206560181938F80068545D /* palette33.png */; };
-		5A20656318193FC80068545D /* palette3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A20656218193FC80068545D /* palette3.png */; };
+		5A20656318193FC80068545D /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A20656218193FC80068545D /* palette.png */; };
 		5AB2DB41181566E30038B6F7 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2DB3F181566E30038B6F7 /* ColorPicker.m */; };
-		5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB40181566E30038B6F7 /* colorWheel.png */; };
-		5AB2DB461817C4620038B6F7 /* palette2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB451817C4620038B6F7 /* palette2.png */; };
 		5AB2DB4A181937510038B6F7 /* palett.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB49181937510038B6F7 /* palett.png */; };
 		5AB5A7D417F46D9B00A3CA9F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D217F46D9B00A3CA9F /* SettingsViewController.m */; };
 		5AB5A7D517F46D9B00A3CA9F /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB5A7D317F46D9B00A3CA9F /* SettingsViewController.xib */; };
@@ -28,15 +25,13 @@
 		5ADFA7D417F1F16A00B64813 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ADFA7D317F1F16A00B64813 /* Default-568h@2x.png */; };
 		5ADFA7D717F1F16A00B64813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFA7D617F1F16A00B64813 /* ViewController.m */; };
 		5ADFA7DA17F1F16A00B64813 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADFA7D817F1F16A00B64813 /* ViewController.xib */; };
+		68C555D8181FE7CB00AD7029 /* palette@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C555D7181FE7CB00AD7029 /* palette@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A206560181938F80068545D /* palette33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette33.png; sourceTree = "<group>"; };
-		5A20656218193FC80068545D /* palette3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette3.png; sourceTree = "<group>"; };
+		5A20656218193FC80068545D /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		5AB2DB3E181566E30038B6F7 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		5AB2DB3F181566E30038B6F7 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
-		5AB2DB40181566E30038B6F7 /* colorWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorWheel.png; sourceTree = "<group>"; };
-		5AB2DB451817C4620038B6F7 /* palette2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette2.png; sourceTree = "<group>"; };
 		5AB2DB49181937510038B6F7 /* palett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palett.png; sourceTree = "<group>"; };
 		5AB5A7D117F46D9B00A3CA9F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5AB5A7D217F46D9B00A3CA9F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -59,6 +54,7 @@
 		5ADFA7D517F1F16A00B64813 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5ADFA7D617F1F16A00B64813 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5ADFA7D917F1F16A00B64813 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		68C555D7181FE7CB00AD7029 /* palette@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "palette@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +76,6 @@
 			children = (
 				5AB2DB3E181566E30038B6F7 /* ColorPicker.h */,
 				5AB2DB3F181566E30038B6F7 /* ColorPicker.m */,
-				5AB2DB40181566E30038B6F7 /* colorWheel.png */,
 			);
 			name = ColorPicker;
 			sourceTree = "<group>";
@@ -135,9 +130,8 @@
 				5AB2DB49181937510038B6F7 /* palett.png */,
 				5ADFA7C517F1F16A00B64813 /* Clock-Info.plist */,
 				5ADFA7C617F1F16A00B64813 /* InfoPlist.strings */,
-				5A20656218193FC80068545D /* palette3.png */,
-				5A206560181938F80068545D /* palette33.png */,
-				5AB2DB451817C4620038B6F7 /* palette2.png */,
+				5A20656218193FC80068545D /* palette.png */,
+				68C555D7181FE7CB00AD7029 /* palette@2x.png */,
 				5AB9B8A4180EB5810018A3C5 /* switchOn.png */,
 				5AB9B8A2180EB4820018A3C5 /* switchOff.png */,
 				5ADFA7C917F1F16A00B64813 /* main.m */,
@@ -201,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ADFA7C817F1F16A00B64813 /* InfoPlist.strings in Resources */,
+				68C555D8181FE7CB00AD7029 /* palette@2x.png in Resources */,
 				5ADFA7D017F1F16A00B64813 /* Default.png in Resources */,
 				5ADFA7D217F1F16A00B64813 /* Default@2x.png in Resources */,
 				5ADFA7D417F1F16A00B64813 /* Default-568h@2x.png in Resources */,
@@ -208,11 +203,8 @@
 				5AB5A7D517F46D9B00A3CA9F /* SettingsViewController.xib in Resources */,
 				5AB9B8A3180EB4820018A3C5 /* switchOff.png in Resources */,
 				5AB9B8A5180EB5810018A3C5 /* switchOn.png in Resources */,
-				5AB2DB42181566E30038B6F7 /* colorWheel.png in Resources */,
-				5AB2DB461817C4620038B6F7 /* palette2.png in Resources */,
 				5AB2DB4A181937510038B6F7 /* palett.png in Resources */,
-				5A206561181938F80068545D /* palette33.png in Resources */,
-				5A20656318193FC80068545D /* palette3.png in Resources */,
+				5A20656318193FC80068545D /* palette.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

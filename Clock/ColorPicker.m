@@ -26,6 +26,7 @@
     
     return self;
 }
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -35,15 +36,6 @@
     }
     return self;
 }
-
-//- (id)initWithPaletteImage:(UIImage *)paletteImage
-//{
-//    self = [super init];
-//    if (self) {
-//        self.paletteImg = paletteImage;
-//    }
-//    return self;
-//}
 
 - (void)setPaletteImage:(UIImage *)paletteImage
 {
@@ -60,26 +52,18 @@
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.touchInside) {
-     //   NSLog(@"TOUCH INSIDE");
-        // now get color
         CGPoint p = [touch locationInView:self];
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
-     //   NSLog(@"color: %@", _oldColor);
     }
-   // else NSLog(@"not Inside");
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 -(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.touchInside) {
-      //  NSLog(@"Drag INSIDE");
-        // now get color
         CGPoint p = [touch locationInView:self];
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
-       // NSLog(@"color: %@", _oldColor);
     }
-  //  else NSLog(@"not Inside");
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     return (YES);
 }
@@ -88,7 +72,7 @@
 {
 }
 
-- (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point //count:(int)count
+- (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point
 {
     CGImageRef imageRef = [_paletteImage CGImage];
     NSUInteger width = CGImageGetWidth(imageRef);
@@ -117,7 +101,6 @@
 -(BOOL)isInView: (CGPoint*)point inView:(UIImageView*)view
 {
     if(CGRectContainsPoint(view.frame, *point)){
-//        NSLog(view.description);
         return YES;
     }
        else{
