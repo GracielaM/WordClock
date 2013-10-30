@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
    
-    _colorPicker.paletteImage = [UIImage imageNamed:@"palette"];
+    _colorPicker.paletteImage = [UIImage imageNamed:@"palette.png"];
     _sampleLbl.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];

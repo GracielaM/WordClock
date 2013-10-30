@@ -21,10 +21,10 @@
     //self.window.rootViewController = self.viewController;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     
-    NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc]init];
-    [appDefaults setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]] forKey:@"lightColor"];
-    [appDefaults setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]] forKey:@"backGroundColor"];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    NSMutableDictionary *appDefaultsColors = [[NSMutableDictionary alloc]init];
+    [appDefaultsColors setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor whiteColor]] forKey:@"lightColor"];
+    [appDefaultsColors setValue:[NSKeyedArchiver archivedDataWithRootObject:[UIColor blackColor]] forKey:@"backGroundColor"];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaultsColors];
 
     [self.window makeKeyAndVisible];
     
