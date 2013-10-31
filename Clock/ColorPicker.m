@@ -75,8 +75,10 @@
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point
 {
     CGImageRef imageRef = [_paletteImage CGImage];
-    NSUInteger width = CGImageGetWidth(imageRef);
-    NSUInteger height = CGImageGetHeight(imageRef);
+//    NSUInteger width = CGImageGetWidth(imageRef) ;
+//    NSUInteger height = CGImageGetHeight(imageRef);
+    NSUInteger width = point->x * 2;
+    NSUInteger height = point->y * 2;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     unsigned char *rawData = (unsigned char*) calloc(height * width * 4, sizeof(unsigned char));
     NSUInteger bytesPerPixel = 4;
