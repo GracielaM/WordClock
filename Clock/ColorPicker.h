@@ -15,4 +15,5 @@
 @property UIColor *oldColor;
 
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point;
+
 @end 

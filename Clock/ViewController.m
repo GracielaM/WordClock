@@ -21,7 +21,9 @@
 {   
     [super viewDidLoad];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
-    self.qualifiers = [[NSArray alloc]initWithObjects:_half, _ten, _quarter, _twenty, _five, _minutes, _to, _past, _oclock,_tenQual, _fiveQual, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:_half, _quarterM, _twentyM, _to, _past, _tenM, _fiveM,_minutes,_oclock, nil];
+    self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четери", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
+    self.qualifiersBg = [[NSArray alloc]initWithObjects:@"половина",@"петнадесет",@"двадесет",@"без",@"и",@"десет",@"пет",@"минути",@"часа", nil];
     [self formatLbls];
     [self setLetterShadow];
    
@@ -34,15 +36,17 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
+    [self changeLabelLocationForBg];
+    [self changeToBgText];
 
 }
 
 -(void)formatLbls{
     [self loadDefaultsColors];
-    self.itsLbl.textColor = self.lightColor;
-    self.itsLbl.font = [UIFont boldSystemFontOfSize:20];
+    self.its.textColor = self.lightColor;
+    self.its.font = [UIFont boldSystemFontOfSize:20];
     [self setLetterColor];
-    [self changeColor:_itsLbl :_lightColor];
+    [self changeColor:_its :_lightColor];
     self.view.backgroundColor = _backGroundColor;
 }
 
@@ -57,52 +61,52 @@
     [self setLetterColor];
        
     if ( [self currentMinutes] >= 55) {
-        // minutes = @"five to";
-        [self changeColor:[_qualifiers objectAtIndex:10]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
+        // minutes = @"five minutes to";
+        [self changeColor:_fiveM :self.lightColor];
+        [self changeColor:_to:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
         hour++;
     }else if( [self currentMinutes] >= 50) {
-        [self changeColor:[_qualifiers objectAtIndex:9]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
-        // minutes = @"ten to";
+        [self changeColor:_tenM:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
+        [self changeColor:_to:self.lightColor];
+        // minutes = @"ten minutes to";
         hour++;
     }else if( [self currentMinutes] >= 45) {
-        [self changeColor:[_qualifiers objectAtIndex:2]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
+        [self changeColor:_quarterM:self.lightColor];
+        [self changeColor:_to:self.lightColor];
         // minutes = @"quarter to";
         hour++;
     }else if( [self currentMinutes] >= 40){
-        [self changeColor:[_qualifiers objectAtIndex:3]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:6]:self.lightColor];
-        // minutes = @"twenty to";
+        [self changeColor:_twentyM:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
+        [self changeColor:_to:self.lightColor];
+        // minutes = @"twenty minutes to";
         hour++;
     }else if( [self currentMinutes] >= 30) {
-        [self changeColor:[_qualifiers objectAtIndex:0]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
-        
+        [self changeColor:_half:self.lightColor];
+        [self changeColor:_past:self.lightColor];
+        //half past
     }else if ( [self currentMinutes] >= 20) {
-        [self changeColor:[_qualifiers objectAtIndex:3]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
+        [self changeColor:_twentyM:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
+        [self changeColor:_past:self.lightColor];
         // minutes = @"twenty past";
     }else if( [self currentMinutes] >= 15) {
-        [self changeColor:[_qualifiers objectAtIndex:2]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
+        [self changeColor:_quarterM:self.lightColor];
+        [self changeColor:_past:self.lightColor];
         // minutes = @"quarter past";
     }else if ( [self currentMinutes] >= 10) {
-        [self changeColor:[_qualifiers objectAtIndex:9]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
+        [self changeColor:_tenM:self.lightColor];
+        [self changeColor:_past:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
         // minutes = @"ten past";
     }else if( [self currentMinutes] >= 5) {
-        [self changeColor:[_qualifiers objectAtIndex:10]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:5]:self.lightColor];
-        [self changeColor:[_qualifiers objectAtIndex:7]:self.lightColor];
+        [self changeColor:_fiveM:self.lightColor];
+        [self changeColor:_past:self.lightColor];
+        [self changeColor:_minutes:self.lightColor];
             }else if( [self currentMinutes] >= 0){
-        [self changeColor:[_qualifiers objectAtIndex:8]:self.lightColor];
+        [self changeColor:_oclock:self.lightColor];
         // minutes = @"o'clock";
     }
     if(hour == [self currentHour]){
@@ -124,7 +128,9 @@
     NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:now];
     if([components hour]>12)
     return [components hour] - 12;
-    else return [components hour];
+    if([components hour] ==0)
+        return 12;
+    return [components hour];
 }
 
 - (NSInteger)currentMinutes
@@ -190,6 +196,49 @@
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
     _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
+}
+
+-(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel
+{
+    CGPoint firstLabelCenter = firstLabel.center;
+    firstLabel.center = secondLabel.center;
+    secondLabel.center = firstLabelCenter;
+}
+-(void)changeLabelLocationForBg
+{
+    [self locationSwap:_one :_fiveM];
+    [self locationSwap:_tenM :_two];
+    [self locationSwap:_quarterM :_three];
+    [self locationSwap:_twentyM :_four];
+    [self locationSwap:_minutes :_five];
+    [self locationSwap:_six :_half];
+    [self locationSwap:_past :_seven];
+    [self locationSwap:_eight :_to];
+    [self locationSwap:_nine :_one];
+    [self locationSwap:_ten :_two];
+    [self locationSwap:_eleven :_three];
+    [self locationSwap:_twelve :_four];
+    [self locationSwap:_past :_five];
+    [self locationSwap:_to :_six];
+    [self locationSwap:_fiveM :_seven];
+    [self locationSwap:_tenM :_eight];
+    [self locationSwap:_quarterM :_nine];
+    [self locationSwap:_twentyM :_ten];
+    [self locationSwap:_fiveM :_one];
+    [self locationSwap:_half :_eleven];
+}
+
+-(void)changeToBgText
+{
+    UILabel* tempLabel = [[UILabel alloc]init];
+    for(int i=0;i<_numbers.count;i++){
+        tempLabel = [_numbers objectAtIndex:i];
+        tempLabel.text = [_numbersBg objectAtIndex:i];
+    }
+    for(int i=0;i<_qualifiers.count;i++){
+        tempLabel = [_qualifiers objectAtIndex:i];
+        tempLabel.text = [_qualifiersBg objectAtIndex:i];
+    }
 }
 
 @end

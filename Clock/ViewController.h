@@ -15,28 +15,31 @@
 
 @property(strong, nonatomic) NSArray *numbers;
 @property(strong, nonatomic) NSArray *qualifiers;
-@property (strong, nonatomic) IBOutlet UILabel *half;
-@property (strong, nonatomic) IBOutlet UILabel *tenQual;
-@property (strong, nonatomic) IBOutlet UILabel *quarter;
-@property (strong, nonatomic) IBOutlet UILabel *twenty;
-@property (strong, nonatomic) IBOutlet UILabel *fiveQual;
-@property (strong, nonatomic) IBOutlet UILabel *minutes;
-@property (strong, nonatomic) IBOutlet UILabel *to;
-@property (strong, nonatomic) IBOutlet UILabel *past;
-@property (strong, nonatomic) IBOutlet UILabel *one;
-@property (strong, nonatomic) IBOutlet UILabel *three;
-@property (strong, nonatomic) IBOutlet UILabel *two;
-@property (strong, nonatomic) IBOutlet UILabel *four;
-@property (strong, nonatomic) IBOutlet UILabel *five;
-@property (strong, nonatomic) IBOutlet UILabel *six;
-@property (strong, nonatomic) IBOutlet UILabel *seven;
-@property (strong, nonatomic) IBOutlet UILabel *eight;
-@property (strong, nonatomic) IBOutlet UILabel *nine;
-@property (strong, nonatomic) IBOutlet UILabel *ten;
-@property (strong, nonatomic) IBOutlet UILabel *eleven;
-@property (strong, nonatomic) IBOutlet UILabel *twelve;
-@property (strong, nonatomic) IBOutlet UILabel *itsLbl;
-@property (strong, nonatomic) IBOutlet UILabel *oclock;
+@property(strong, nonatomic) NSArray *numbersBg;
+@property(strong, nonatomic) NSArray *qualifiersBg;
+@property (weak, nonatomic) IBOutlet UILabel *its;
+@property (weak, nonatomic) IBOutlet UILabel *fiveM;
+@property (weak, nonatomic) IBOutlet UILabel *tenM;
+@property (weak, nonatomic) IBOutlet UILabel *quarterM;
+@property (weak, nonatomic) IBOutlet UILabel *twentyM;
+@property (weak, nonatomic) IBOutlet UILabel *half;
+@property (weak, nonatomic) IBOutlet UILabel *past;
+@property (weak, nonatomic) IBOutlet UILabel *to;
+@property (weak, nonatomic) IBOutlet UILabel *one;
+@property (weak, nonatomic) IBOutlet UILabel *two;
+@property (weak, nonatomic) IBOutlet UILabel *three;
+@property (weak, nonatomic) IBOutlet UILabel *four;
+@property (weak, nonatomic) IBOutlet UILabel *five;
+@property (weak, nonatomic) IBOutlet UILabel *six;
+@property (weak, nonatomic) IBOutlet UILabel *seven;
+@property (weak, nonatomic) IBOutlet UILabel *eight;
+@property (weak, nonatomic) IBOutlet UILabel *nine;
+@property (weak, nonatomic) IBOutlet UILabel *ten;
+@property (weak, nonatomic) IBOutlet UILabel *eleven;
+@property (weak, nonatomic) IBOutlet UILabel *twelve;
+@property (weak, nonatomic) IBOutlet UILabel *minutes;
+@property (weak, nonatomic) IBOutlet UILabel *oclock;
+
 
 @property(strong) UIColor* lightColor;
 @property(strong) UIColor* backGroundColor;
@@ -49,5 +52,8 @@
 -(void)setLetterShadow;
 -(void)setDefaultsColors;
 -(void)loadDefaultsColors;
+-(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel;
+-(void)changeLabelLocationForBg;
+-(void)changeToBgText;
 
 @end
