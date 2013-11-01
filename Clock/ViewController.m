@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:_half, _quarterM, _twentyM, _to, _past, _tenM, _fiveM,_minutes,_oclock, nil];
-    self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четери", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
+    self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четири", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
     self.qualifiersBg = [[NSArray alloc]initWithObjects:@"половина",@"петнадесет",@"двадесет",@"без",@"и",@"десет",@"пет",@"минути",@"часа", nil];
     [self formatLbls];
     [self setLetterShadow];
@@ -205,7 +205,7 @@
     secondLabel.center = firstLabelCenter;
 }
 -(void)changeLabelLocationForBg
-{
+{   _its.text = @"часът е";
     [self locationSwap:_one :_fiveM];
     [self locationSwap:_tenM :_two];
     [self locationSwap:_quarterM :_three];
@@ -216,16 +216,12 @@
     [self locationSwap:_eight :_to];
     [self locationSwap:_nine :_fiveM];
     [self locationSwap:_eleven :_quarterM];
-//    [self locationSwap:_eleven :_three];
-//    [self locationSwap:_twelve :_four];
-//    [self locationSwap:_past :_five];
-//    [self locationSwap:_to :_six];
-//    [self locationSwap:_fiveM :_seven];
-//    [self locationSwap:_tenM :_eight];
-//    [self locationSwap:_quarterM :_nine];
-//    [self locationSwap:_twentyM :_ten];
-//    //[self locationSwap:_fiveM :_one];
-//    [self locationSwap:_half :_eleven];
+    [self locationSwap:_minutes :_past];
+    [self locationSwap:_to :_half];
+    [self locationSwap:_minutes :_fiveM];
+    [self locationSwap:_ten :_tenM];
+    [self locationSwap:_twentyM :_twelve];
+    [self locationSwap:_twentyM :_minutes];
 }
 
 -(void)changeToBgText
