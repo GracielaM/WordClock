@@ -214,18 +214,18 @@
     [self locationSwap:_six :_half];
     [self locationSwap:_past :_seven];
     [self locationSwap:_eight :_to];
-    [self locationSwap:_nine :_one];
-    [self locationSwap:_ten :_two];
-    [self locationSwap:_eleven :_three];
-    [self locationSwap:_twelve :_four];
-    [self locationSwap:_past :_five];
-    [self locationSwap:_to :_six];
-    [self locationSwap:_fiveM :_seven];
-    [self locationSwap:_tenM :_eight];
-    [self locationSwap:_quarterM :_nine];
-    [self locationSwap:_twentyM :_ten];
-    [self locationSwap:_fiveM :_one];
-    [self locationSwap:_half :_eleven];
+    [self locationSwap:_nine :_fiveM];
+    [self locationSwap:_eleven :_quarterM];
+//    [self locationSwap:_eleven :_three];
+//    [self locationSwap:_twelve :_four];
+//    [self locationSwap:_past :_five];
+//    [self locationSwap:_to :_six];
+//    [self locationSwap:_fiveM :_seven];
+//    [self locationSwap:_tenM :_eight];
+//    [self locationSwap:_quarterM :_nine];
+//    [self locationSwap:_twentyM :_ten];
+//    //[self locationSwap:_fiveM :_one];
+//    [self locationSwap:_half :_eleven];
 }
 
 -(void)changeToBgText
