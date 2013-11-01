@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
     self.qualifiers = [[NSArray alloc]initWithObjects:_half, _quarterM, _twentyM, _to, _past, _tenM, _fiveM,_minutes,_oclock, nil];
-    self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четери", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
+    self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четири", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
     self.qualifiersBg = [[NSArray alloc]initWithObjects:@"половина",@"петнадесет",@"двадесет",@"без",@"и",@"десет",@"пет",@"минути",@"часа", nil];
     [self formatLbls];
     [self setLetterShadow];
