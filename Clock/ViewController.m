@@ -21,9 +21,9 @@
 {   
     [super viewDidLoad];
     self.numbers = [[NSArray alloc]initWithObjects:_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve, nil];
-    self.qualifiers = [[NSArray alloc]initWithObjects:_half, _quarterM, _twentyM, _to, _past, _tenM, _fiveM,_minutes,_oclock, nil];
+    self.qualifiers = [[NSArray alloc]initWithObjects:_half, _quarterM, _twentyM, _to, _past, _tenM, _fiveM,_minutes,_oclock,_its, nil];
     self.numbersBg = [[NSArray alloc] initWithObjects:@"един",@"два",@"три",@"четири", @"пет", @"шест",@"седем",@"осем",@"девет",@"десет",@"единадесет",@"дванадесет", nil];
-    self.qualifiersBg = [[NSArray alloc]initWithObjects:@"половина",@"петнадесет",@"двадесет",@"без",@"и",@"десет",@"пет",@"минути",@"часа", nil];
+    self.qualifiersBg = [[NSArray alloc]initWithObjects:@"половина",@"петнадесет",@"двадесет",@"без",@"и",@"десет",@"пет",@"минути",@"часа",@"часът е ", nil];
     [self formatLbls];
     [self setLetterShadow];
    
@@ -44,7 +44,7 @@
 -(void)formatLbls{
     [self loadDefaultsColors];
     self.its.textColor = self.lightColor;
-    self.its.font = [UIFont boldSystemFontOfSize:20];
+    self.its.font = _one.font;
     [self setLetterColor];
     [self changeColor:_its :_lightColor];
     self.view.backgroundColor = _backGroundColor;
@@ -59,7 +59,8 @@
 -(void)lightTheWords{
     int hour = [self currentHour];
     [self setLetterColor];
-       
+    [self changeColor:_its :self.lightColor];
+     
     if ( [self currentMinutes] >= 55) {
         // minutes = @"five minutes to";
         [self changeColor:_fiveM :self.lightColor];
@@ -205,7 +206,7 @@
     secondLabel.center = firstLabelCenter;
 }
 -(void)changeLabelLocationForBg
-{   _its.text = @"часът е";
+{
     [self locationSwap:_one :_fiveM];
     [self locationSwap:_tenM :_two];
     [self locationSwap:_quarterM :_three];
