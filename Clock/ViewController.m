@@ -192,4 +192,28 @@
 }
 
 
+-(void)calculateLabelsPositions:(NSArray *)labels{
+    
+    CGPoint labelDimensions;
+    labelDimensions.x = 20;
+    labelDimensions.y = 60;
+    CGPoint labelDimensionsSteps;
+    labelDimensionsSteps.x = 110;
+    labelDimensionsSteps.y = 40;
+    int counter = 1;
+    for(int i=0; i<labels.count; i++){
+        
+        labelDimensions.x = labelDimensions.x + labelDimensionsSteps.x;
+        counter++;
+        if(counter == 3){
+            labelDimensions.x=20;
+            labelDimensions.y=labelDimensions.y + labelDimensionsSteps.y;
+            counter = 1;
+        }
+    }
+    
+    
+}
+
+
 @end
