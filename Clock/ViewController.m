@@ -107,12 +107,12 @@
         // minutes = @"o'clock";
     }
     if(hour == [self currentHour]){
-       NSInteger hour = [self currentHour];
-          [self changeColor:_labels[hour + 8]:self.lightColor];
+        NSInteger hour = [self currentHour];
+        [self changeColor:_labels[hour + 8]:self.lightColor];
     } else {
         [self changeColor:_labels[hour + 8]:self.lightColor];
     }
-    NSLog(@"Hour: %d", hour);
+
 }
 
 -(void)changeColor:(UILabel *)lblName : (UIColor*) color{
