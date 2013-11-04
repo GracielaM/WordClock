@@ -50,10 +50,5 @@
 -(void)setLetterShadow;
 -(void)setDefaultsColors;
 -(void)loadDefaultsColors;
--(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel;
--(void)changeLabelLocationForBg;
--(void)changeToBgText;
--(void)calculateLabelsPositions : (NSArray *)labels;
--(void)changeLabelLocationForEn;
 
 @end

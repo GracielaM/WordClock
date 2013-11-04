@@ -112,7 +112,6 @@
     } else {
         [self changeColor:_labels[hour + 8]:self.lightColor];
     }
-
 }
 
 -(void)changeColor:(UILabel *)lblName : (UIColor*) color{
@@ -211,9 +210,11 @@
             counter = 1;
         }
     }
-    
-    
 }
 
+-(void)putLbl: (CGPoint) point : (UILabel*) label
+{
+    //label.bounds.origin = CGPointMake(point.x, point.y);
+}
 
 @end
