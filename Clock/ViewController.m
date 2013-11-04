@@ -191,45 +191,7 @@
     _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
 }
 
-<<<<<<< HEAD
--(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel
-{
-    CGPoint firstLabelCenter = firstLabel.center;
-    firstLabel.center = secondLabel.center;
-    secondLabel.center = firstLabelCenter;
-}
--(void)changeLabelLocationForBg
-{
-    [self locationSwap:_one :_fiveM];
-    [self locationSwap:_tenM :_two];
-    [self locationSwap:_quarterM :_three];
-    [self locationSwap:_twentyM :_four];
-    [self locationSwap:_minutes :_five];
-    [self locationSwap:_six :_half];
-    [self locationSwap:_past :_seven];
-    [self locationSwap:_eight :_to];
-    [self locationSwap:_nine :_fiveM];
-    [self locationSwap:_eleven :_quarterM];
-    [self locationSwap:_minutes :_past];
-    [self locationSwap:_to :_half];
-    [self locationSwap:_minutes :_fiveM];
-    [self locationSwap:_ten :_tenM];
-    [self locationSwap:_twentyM :_twelve];
-    [self locationSwap:_twentyM :_minutes];
-}
 
--(void)changeToBgText
-{
-    UILabel* tempLabel = [[UILabel alloc]init];
-    for(int i=0;i<_numbers.count;i++){
-        tempLabel = [_numbers objectAtIndex:i];
-        tempLabel.text = [_numbersBg objectAtIndex:i];
-    }
-    for(int i=0;i<_qualifiers.count;i++){
-        tempLabel = [_qualifiers objectAtIndex:i];
-        tempLabel.text = [_qualifiersBg objectAtIndex:i];
-    }
-}
 -(void)calculateLabelsPositions:(NSArray *)labels{
     
     CGPoint labelDimensions;
@@ -252,7 +214,6 @@
     
     
 }
-=======
->>>>>>> fd1edaa15f9d5215bc7774c19e3865fa43b49a40
+
 
 @end

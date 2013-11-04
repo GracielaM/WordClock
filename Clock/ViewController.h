@@ -53,10 +53,7 @@
 -(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel;
 -(void)changeLabelLocationForBg;
 -(void)changeToBgText;
-<<<<<<< HEAD
 -(void)calculateLabelsPositions : (NSArray *)labels;
-=======
 -(void)changeLabelLocationForEn;
 
->>>>>>> fd1edaa15f9d5215bc7774c19e3865fa43b49a40
 @end
