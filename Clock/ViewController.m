@@ -21,6 +21,8 @@
 {   
     [super viewDidLoad];
     self.labels = [[NSArray alloc]initWithObjects:_its, _fiveM, _tenM, _quarterM, _twentyM, _minutes,_half,_past,_to,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten, _eleven,_twelve, _oclock,nil];
+    self.labelsBg = [[NSArray alloc]initWithObjects:_its,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve,_past,_to,_fiveM,_tenM,_quarterM,_twentyM,_minutes,_half,_oclock,nil];
+    [self calculateLabelsPositions:_labelsBg];
     [self formatLbls];
     [self setLetterShadow];
    
@@ -28,7 +30,7 @@
     self.navigationItem.rightBarButtonItem = adminButton;
     
     [self lightTheWords];
-
+    
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
@@ -201,7 +203,7 @@
     labelDimensionsSteps.y = 40;
     int counter = 1;
     for(int i=0; i<labels.count; i++){
-        
+        [self putLbl:labelDimensions:[labels objectAtIndex:i]];
         labelDimensions.x = labelDimensions.x + labelDimensionsSteps.x;
         counter++;
         if(counter == 3){
@@ -214,7 +216,9 @@
 
 -(void)putLbl: (CGPoint) point : (UILabel*) label
 {
-    //label.bounds.origin = CGPointMake(point.x, point.y);
+    label.bounds = CGRectMake(point.x, point.y, 80, 30);
+    //label.frame = CGRectMake(point.x, point.y, 80, 30);
+    
 }
 
 @end

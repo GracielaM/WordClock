@@ -14,7 +14,7 @@
 @interface ViewController : UIViewController
 
 @property(strong, nonatomic) NSArray *labels;
-
+@property(strong, nonatomic) NSArray *labelsBg;
 @property (weak, nonatomic) IBOutlet UILabel *its;
 @property (weak, nonatomic) IBOutlet UILabel *fiveM;
 @property (weak, nonatomic) IBOutlet UILabel *tenM;
@@ -50,5 +50,6 @@
 -(void)setLetterShadow;
 -(void)setDefaultsColors;
 -(void)loadDefaultsColors;
+-(void)putLbl: (CGPoint) point : (UILabel*) label;
 
 @end
