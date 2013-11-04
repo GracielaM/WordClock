@@ -193,7 +193,7 @@
 }
 
 
--(void)calculateLabelsPositions:(NSArray *)labels{
+-(void)calculateLabelsPositions:(NSArray *)label{
     
     CGPoint labelDimensions;
     labelDimensions.x = 20;
@@ -202,23 +202,25 @@
     labelDimensionsSteps.x = 110;
     labelDimensionsSteps.y = 40;
     int counter = 1;
-    for(int i=0; i<labels.count; i++){
-        [self putLbl:labelDimensions:[labels objectAtIndex:i]];
+    for(int i=0; i<label.count; i++){
+        [self putLbl:labelDimensions:[label objectAtIndex:i]];
         labelDimensions.x = labelDimensions.x + labelDimensionsSteps.x;
-        counter++;
         if(counter == 3){
             labelDimensions.x=20;
             labelDimensions.y=labelDimensions.y + labelDimensionsSteps.y;
-            counter = 1;
+            counter = 0;
         }
+        counter++;
     }
 }
 
 -(void)putLbl: (CGPoint) point : (UILabel*) label
 {
-    label.bounds = CGRectMake(point.x, point.y, 80, 30);
-    //label.frame = CGRectMake(point.x, point.y, 80, 30);
-    
+    label.frame = CGRectMake(point.x, point.y, 80, 30);
 }
 
+-(void)setBgLabels
+{
+    
+}
 @end
