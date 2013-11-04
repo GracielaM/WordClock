@@ -13,10 +13,8 @@
 
 @interface ViewController : UIViewController
 
-@property(strong, nonatomic) NSArray *numbers;
-@property(strong, nonatomic) NSArray *qualifiers;
-@property(strong, nonatomic) NSArray *numbersBg;
-@property(strong, nonatomic) NSArray *qualifiersBg;
+@property(strong, nonatomic) NSArray *labels;
+
 @property (weak, nonatomic) IBOutlet UILabel *its;
 @property (weak, nonatomic) IBOutlet UILabel *fiveM;
 @property (weak, nonatomic) IBOutlet UILabel *tenM;
@@ -55,5 +53,10 @@
 -(void)locationSwap:(UILabel *)firstLabel : (UILabel*) secondLabel;
 -(void)changeLabelLocationForBg;
 -(void)changeToBgText;
+<<<<<<< HEAD
 -(void)calculateLabelsPositions : (NSArray *)labels;
+=======
+-(void)changeLabelLocationForEn;
+
+>>>>>>> fd1edaa15f9d5215bc7774c19e3865fa43b49a40
 @end
