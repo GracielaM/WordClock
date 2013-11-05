@@ -37,10 +37,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *twelve;
 @property (weak, nonatomic) IBOutlet UILabel *minutes;
 @property (weak, nonatomic) IBOutlet UILabel *oclock;
-
-
 @property(strong) UIColor* lightColor;
 @property(strong) UIColor* backGroundColor;
+@property NSString* language;
+
 -(void) goToSettings ;
 -(void)setLetterColor;
 -(NSInteger)currentHour;
@@ -48,8 +48,12 @@
 -(void) lightTheWords;
 -(void) changeColor: (UILabel *)lblName :(UIColor*)color;
 -(void)setLetterShadow;
--(void)setDefaultsColors;
--(void)loadDefaultsColors;
+-(void)setUserDefaults;
+-(void)loadUserDefaults;
 -(void)putLbl: (CGPoint) point : (UILabel*) label;
-
+-(void)setBgLabels;
+-(void)setEnLabels;
+-(void)switchToBg;
+-(void)switchToEn;
+-(void)setClockLanguage;
 @end

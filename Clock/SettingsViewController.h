@@ -17,12 +17,14 @@
 @property (strong, nonatomic) IBOutlet UISwitch *colorSwitch;
 @property UIColor* lightColor;
 @property UIColor* backGroundColor;
-@property NSUserDefaults *colors;
-
+@property NSString* language;
+@property (weak, nonatomic) IBOutlet UISwitch *languageSwitch;
 @property IBOutlet ColorPicker* colorPicker;
 
 -(void)setColor;
--(void)loadDefaultsColors;
--(void)setDefaultsColors;
+-(void)loadUserDefaults;
+-(void)setUserDefaults;
+-(void) setClockLanguage;
+- (IBAction)languageSwitchChanged:(id)sender;
 
 @end

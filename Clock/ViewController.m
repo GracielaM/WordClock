@@ -22,15 +22,12 @@
     [super viewDidLoad];
     self.labels = [[NSArray alloc]initWithObjects:_its, _fiveM, _tenM, _quarterM, _twentyM, _minutes,_half,_past,_to,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten, _eleven,_twelve, _oclock,nil];
     self.labelsBg = [[NSArray alloc]initWithObjects:_its,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve,_past,_to,_fiveM,_tenM,_quarterM,_twentyM,_minutes,_half,_oclock,nil];
-    [self calculateLabelsPositions:_labelsBg];
     [self formatLbls];
     [self setLetterShadow];
-   
+    [self setClockLanguage];
     UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings)];
     self.navigationItem.rightBarButtonItem = adminButton;
-    
     [self lightTheWords];
-    
     NSRunLoop *runloop = [NSRunLoop currentRunLoop];
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
@@ -39,7 +36,7 @@
 }
 
 -(void)formatLbls{
-    [self loadDefaultsColors];
+    [self loadUserDefaults];
     self.its.textColor = self.lightColor;
     self.its.font = _one.font;
     [self setLetterColor];
@@ -163,7 +160,7 @@
     SettingsViewController *settingsView =[[SettingsViewController alloc]init];
     settingsView.lightColor = _lightColor;
     settingsView.backGroundColor = _backGroundColor;
-    [self.navigationController pushViewController:settingsView animated:NO];
+    [self.navigationController pushViewController:settingsView animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -174,22 +171,26 @@
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
     [self formatLbls];
+    [self setUserDefaults];
+    [self setClockLanguage];
     
 }
 
--(void)setDefaultsColors
+-(void)setUserDefaults
 {
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_lightColor] forKey:@"lightColor"];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_backGroundColor] forKey:@"backGroundColor"];
+    [defaultsColors setObject:_language forKey:@"language"];
     [defaultsColors synchronize];
 }
 
--(void)loadDefaultsColors
+-(void)loadUserDefaults
 {
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
     _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
+    _language = [defaultsColors objectForKey:@"language"];
 }
 
 
@@ -199,7 +200,7 @@
     labelDimensions.x = 20;
     labelDimensions.y = 60;
     CGPoint labelDimensionsSteps;
-    labelDimensionsSteps.x = 110;
+    labelDimensionsSteps.x = 100;
     labelDimensionsSteps.y = 40;
     int counter = 1;
     for(int i=0; i<label.count; i++){
@@ -216,11 +217,47 @@
 
 -(void)putLbl: (CGPoint) point : (UILabel*) label
 {
-    label.frame = CGRectMake(point.x, point.y, 80, 30);
+    label.frame = CGRectMake(point.x, point.y, 90, 30);
 }
 
 -(void)setBgLabels
 {
-    
+    NSArray* bgStrings = [[NSArray alloc]initWithObjects:@"часа е", @"един", @"два", @"три", @"четири" , @"пет", @"шест" , @"седем" , @"осем", @"девет", @"десет", @"единадесет", @"дванадесет", @"и", @"без", @"пет", @"десет", @"петнадесет", @"двадесет", @"минути", @"половина", @"часа",nil];
+    UILabel* tempLabel = [[UILabel alloc]init];
+    for(int i=0;i<_labelsBg.count;i++){
+        tempLabel = [_labelsBg objectAtIndex:i];
+        tempLabel.text = [bgStrings objectAtIndex:i];
+   }
 }
+
+-(void)setEnLabels
+{
+    NSArray * enStrings = [[NSArray alloc]initWithObjects:@"its", @"five", @"ten", @"quarter", @"twenty", @"minutes",@"half",@"past",@"to",@"one",@"two",@"three",@"four",@"five",@"six",@"seven",@"eight",@"nine",@"ten", @"eleven",@"twelve", @"oclock",nil];
+    UILabel* tempLabel = [[UILabel alloc]init];
+    for(int i=0;i<_labels.count;i++){
+        tempLabel = [_labels objectAtIndex:i];
+        tempLabel.text = [enStrings objectAtIndex:i];
+    }
+}
+
+-(void)switchToBg
+{
+    [self calculateLabelsPositions:_labelsBg];
+    [self setBgLabels];
+}
+
+-(void)switchToEn
+{
+    [self calculateLabelsPositions:_labels];
+    [self setEnLabels];
+}
+
+-(void)setClockLanguage
+{
+    if([_language isEqualToString:@"english"])
+        [self switchToEn];
+    if([_language isEqualToString:@"bulgarian"])
+        [self switchToBg];
+}
+
 @end

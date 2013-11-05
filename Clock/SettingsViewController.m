@@ -1,6 +1,6 @@
 //
 //  SettingsView.m
-//  Clock
+//
 //
 //  Created by dancho on 9/26/13.
 //  Copyright (c) 2013 graci. All rights reserved.
@@ -30,12 +30,11 @@
     [super viewDidLoad];
    
     _colorPicker.paletteImage = [UIImage imageNamed:@"palette.png"];
-    _sampleLbl.backgroundColor = _backGroundColor;
-    _sampleLbl.textColor = _lightColor;
+    [self formatLabels];
     _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
     _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
-    NSLog(@"LABEL color: %@",_sampleLbl.textColor);
+    [_languageSwitch addTarget:self action:@selector(languageSwitchChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,9 +45,17 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self setDefaultsColors];
+    [self setUserDefaults];
 }
 
+-(void)formatLabels
+{
+    _sampleLbl.backgroundColor = _backGroundColor;
+    _sampleLbl.textColor = _lightColor;
+    _sampleLbl.textAlignment = NSTextAlignmentCenter;
+    _sampleLbl.text = @"O'clock";
+
+}
 
 -(void)setColor
 {
@@ -62,31 +69,49 @@
         _backGroundColor = _colorPicker.oldColor;
         _sampleLbl.backgroundColor = _backGroundColor;
     }
-    
-    [self setDefaultsColors];
-    
+//    [self setClockLanguage]; //not good place
+    [self setUserDefaults];
+}
+
+-(void) setClockLanguage
+{
+    if(_languageSwitch.on)
+        _language = @"english";
+    else _language = @"bulgarian";
+    [self setUserDefaults];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self loadDefaultsColors];
+    [self loadUserDefaults];
     _sampleLbl.textColor = _lightColor;
     _sampleLbl.backgroundColor = _backGroundColor;
+    if([_language isEqualToString:@"english"])
+        _languageSwitch.on = YES;
+    else
+        _languageSwitch.on = NO;
 }
 
--(void)setDefaultsColors
+-(void)setUserDefaults
 {   
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_lightColor] forKey:@"lightColor"];
     [defaultsColors setObject:[NSKeyedArchiver archivedDataWithRootObject:_backGroundColor] forKey:@"backGroundColor"];
+    [defaultsColors setObject:_language forKey:@"language"];
     [defaultsColors synchronize];
 }
 
--(void)loadDefaultsColors
+-(void)loadUserDefaults
 {
     NSUserDefaults *defaultsColors = [NSUserDefaults standardUserDefaults];
     _lightColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"lightColor"]];
     _backGroundColor = [NSKeyedUnarchiver unarchiveObjectWithData:[defaultsColors objectForKey:@"backGroundColor"]];
+    _language = [defaultsColors objectForKey:@"language"];
+}
+
+- (IBAction)languageSwitchChanged:(id)sender {
+    [self setClockLanguage];
+    [self formatLabels];
 }
 
 @end
