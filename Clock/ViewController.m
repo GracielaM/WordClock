@@ -42,6 +42,10 @@
     [self setLetterColor];
     [self changeColor:_its :_lightColor];
     self.view.backgroundColor = _backGroundColor;
+    if([_language isEqualToString:@"english"])
+        self.title = @"Word clock";
+    else
+        self.title = @"Часовник с думи";
 }
 
 - (void)didReceiveMemoryWarning
@@ -222,7 +226,7 @@
 
 -(void)setBgLabels
 {
-    NSArray* bgStrings = [[NSArray alloc]initWithObjects:@"часа е", @"един", @"два", @"три", @"четири" , @"пет", @"шест" , @"седем" , @"осем", @"девет", @"десет", @"единадесет", @"дванадесет", @"и", @"без", @"пет", @"десет", @"петнадесет", @"двадесет", @"минути", @"половина", @"часа",nil];
+    NSArray* bgStrings = [[NSArray alloc]initWithObjects:@"часът е", @"един", @"два", @"три", @"четири" , @"пет", @"шест" , @"седем" , @"осем", @"девет", @"десет", @"единадесет", @"дванадесет", @"и", @"без", @"пет", @"десет", @"петнадесет", @"двадесет", @"минути", @"половина", @"часа",nil];
     UILabel* tempLabel = [[UILabel alloc]init];
     for(int i=0;i<_labelsBg.count;i++){
         tempLabel = [_labelsBg objectAtIndex:i];

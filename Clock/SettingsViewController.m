@@ -54,7 +54,7 @@
     _sampleLbl.textColor = _lightColor;
     _sampleLbl.textAlignment = NSTextAlignmentCenter;
     _sampleLbl.text = @"O'clock";
-
+        self.title = @"Settings";
 }
 
 -(void)setColor
