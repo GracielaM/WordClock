@@ -28,11 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    _colorPicker.paletteImage = [UIImage imageNamed:@"palette.png"];
-    [self formatLabels];
-    _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
-    _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
+    [self formatControls];
     [_colorPicker addTarget:self action:@selector(setColor) forControlEvents:UIControlEventValueChanged];
     [_languageSwitch addTarget:self action:@selector(languageSwitchChanged:) forControlEvents:UIControlEventValueChanged];
 }
@@ -48,13 +44,18 @@
     [self setUserDefaults];
 }
 
--(void)formatLabels
+-(void)formatControls
 {
     _sampleLbl.backgroundColor = _backGroundColor;
     _sampleLbl.textColor = _lightColor;
     _sampleLbl.textAlignment = NSTextAlignmentCenter;
     _sampleLbl.text = @"O'clock";
         self.title = @"Settings";
+    _colorSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
+    _colorSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
+    _languageSwitch.offImage = [UIImage imageNamed:@"switchOff.png"];
+    _languageSwitch.onImage = [UIImage imageNamed:@"switchOn.png"];
+     _colorPicker.paletteImage = [UIImage imageNamed:@"palette.png"];
 }
 
 -(void)setColor
@@ -69,7 +70,6 @@
         _backGroundColor = _colorPicker.oldColor;
         _sampleLbl.backgroundColor = _backGroundColor;
     }
-//    [self setClockLanguage]; //not good place
     [self setUserDefaults];
 }
 
@@ -111,7 +111,7 @@
 
 - (IBAction)languageSwitchChanged:(id)sender {
     [self setClockLanguage];
-    [self formatLabels];
+    [self formatControls];
 }
 
 @end
