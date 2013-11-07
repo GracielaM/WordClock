@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.labels = [[NSArray alloc]initWithObjects:_its, _fiveM, _tenM, _quarterM, _twentyM, _minutes,_half,_past,_to,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten, _eleven,_twelve, _oclock,nil];
     self.labelsBg = [[NSArray alloc]initWithObjects:_its,_one,_two,_three,_four,_five,_six,_seven,_eight,_nine,_ten,_eleven,_twelve,_past,_to,_fiveM,_tenM,_quarterM,_twentyM,_minutes,_half,_oclock,nil];
-    [self formatLbls];
+    [self formatControls];
     [self setLetterShadow];
     [self setClockLanguage];
     UIBarButtonItem *adminButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings)];
@@ -35,7 +35,7 @@
 
 }
 
--(void)formatLbls{
+-(void)formatControls{
     [self loadUserDefaults];
     self.its.textColor = self.lightColor;
     self.its.font = _one.font;
@@ -174,7 +174,7 @@
     NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(lightTheWords) userInfo:nil repeats:YES];
     [runloop addTimer:timer forMode:NSRunLoopCommonModes];
     [runloop addTimer:timer forMode:UITrackingRunLoopMode];
-    [self formatLbls];
+    [self formatControls];
     [self setUserDefaults];
     [self setClockLanguage];
     
