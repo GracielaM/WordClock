@@ -9,13 +9,24 @@
 #import "ColorPicker.h"
 #import <QuartzCore/QuartzCore.h> 
 
+
 @implementation ColorPicker
 
 
 - (void)setup
 {
     self.pickerImage = [[UIImageView alloc] initWithFrame:self.bounds];
+    
     [self addSubview:self.pickerImage];
+UITapGestureRecognizer *tapGesture  = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector()]];
+    
+    // Set required taps and number of touches
+    [tapGesture setNumberOfTapsRequired:2];
+    [tapGesture setNumberOfTouchesRequired:1];
+    
+    // Add the gesture to the view
+    [[_pickerImage] addGestureRecognizer:tapGesture];
+    
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder // invoked by IB on xib loading
@@ -50,6 +61,8 @@
     return YES;
 }
 
+
+
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.touchInside) {
@@ -57,6 +70,7 @@
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+    
 }
 
 -(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
@@ -66,7 +80,7 @@
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
-    return (YES);
+    return YES;
 }
 
 - (void)cancelTrackingWithEvent:(UIEvent *)event
@@ -74,6 +88,7 @@
 }
 
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point
+
 {
         unsigned char pixel[4] = {0};
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -88,6 +103,7 @@
         UIColor *color = [UIColor colorWithRed:pixel[0]/255.0 green:pixel[1]/255.0 blue:pixel[2]/255.0 alpha:pixel[3]/255.0];
         
         return color;
+
 }
 
 -(BOOL)isInView: (CGPoint*)point inView:(UIImageView*)view
