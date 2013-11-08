@@ -18,14 +18,6 @@
     self.pickerImage = [[UIImageView alloc] initWithFrame:self.bounds];
     
     [self addSubview:self.pickerImage];
-UITapGestureRecognizer *tapGesture  = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector()]];
-    
-    // Set required taps and number of touches
-    [tapGesture setNumberOfTapsRequired:2];
-    [tapGesture setNumberOfTouchesRequired:1];
-    
-    // Add the gesture to the view
-    [[_pickerImage] addGestureRecognizer:tapGesture];
     
 }
 
