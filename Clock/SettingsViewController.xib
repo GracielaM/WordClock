@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleAspectFit" id="111" customClass="ColorPicker">
-                    <rect key="frame" x="70" y="77.999989628791411" width="180" height="180"/>
+                    <rect key="frame" x="70" y="78" width="180" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
