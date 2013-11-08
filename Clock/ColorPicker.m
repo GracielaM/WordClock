@@ -9,6 +9,7 @@
 #import "ColorPicker.h"
 #import <QuartzCore/QuartzCore.h> 
 
+
 @implementation ColorPicker
 
 
@@ -16,6 +17,21 @@
 {
     self.pickerImage = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:self.pickerImage];
+    [self bringSubviewToFront:_pickerImage];
+   
+}
+
+-(IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
+{
+
+    
+        if (self.touchInside) {
+            CGPoint p = [recognizer translationInView:_pickerImage];;
+            _oldColor = [self getRGBAsFromImageAtPoint:&p];
+        }
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    
+    NSLog(@"Gesture activated");
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder // invoked by IB on xib loading
@@ -50,6 +66,8 @@
     return YES;
 }
 
+
+
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (self.touchInside) {
@@ -58,6 +76,7 @@
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     NSLog(@"End Traking coords: X%f, Y%f", [touch locationInView:self].x , [touch locationInView:self].y);
+
 }
 
 -(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
@@ -67,8 +86,10 @@
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+
     NSLog(@"Continue  Traking coords: X%f, Y%f", [touch locationInView:self].x , [touch locationInView:self].y);
     return (YES);
+
 }
 
 
@@ -78,7 +99,9 @@
 }
 
 - (UIColor*)getRGBAsFromImageAtPoint: (CGPoint*)point
+
 {
+
     unsigned char pixel[4] = {0};
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(pixel, 1, 1, 8, 4, colorSpace,(CGBitmapInfo)kCGImageAlphaPremultipliedLast);
@@ -91,6 +114,7 @@
     CGColorSpaceRelease(colorSpace);
     UIColor *color = [UIColor colorWithRed:pixel[0]/255.0 green:pixel[1]/255.0 blue:pixel[2]/255.0 alpha:pixel[3]/255.0];
     return color;
+
 }
 
 -(BOOL)isInView: (CGPoint*)point inView:(UIImageView*)view
