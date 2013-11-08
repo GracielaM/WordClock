@@ -109,7 +109,8 @@
     _language = [defaultsColors objectForKey:@"language"];
 }
 
-- (IBAction)languageSwitchChanged:(id)sender {
+- (IBAction)languageSwitchChanged:(id)sender
+{
     [self setClockLanguage];
     [self formatControls];
 }
