@@ -117,7 +117,8 @@
     }
 }
 
--(void)changeColor:(UILabel *)lblName : (UIColor*) color{
+-(void)changeColor:(UILabel *)lblName : (UIColor*) color
+{
     lblName.textColor = color;
 }
 
@@ -198,7 +199,8 @@
 }
 
 
--(void)calculateLabelsPositions:(NSArray *)label{
+-(void)calculateLabelsPositions:(NSArray *)label
+{
     
     CGPoint labelDimensions;
     labelDimensions.x = 20;
