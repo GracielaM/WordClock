@@ -17,7 +17,6 @@
 {
     self.pickerImage = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:self.pickerImage];
-   
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder

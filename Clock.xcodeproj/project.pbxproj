@@ -27,6 +27,7 @@
 		5ADFA7D717F1F16A00B64813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFA7D617F1F16A00B64813 /* ViewController.m */; };
 		5ADFA7DA17F1F16A00B64813 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADFA7D817F1F16A00B64813 /* ViewController.xib */; };
 		68C555D8181FE7CB00AD7029 /* palette@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68C555D7181FE7CB00AD7029 /* palette@2x.png */; };
+		68C555DB183110B000AD7029 /* TapFlash.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C555DA183110B000AD7029 /* TapFlash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		5ADFA7D617F1F16A00B64813 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5ADFA7D917F1F16A00B64813 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		68C555D7181FE7CB00AD7029 /* palette@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "palette@2x.png"; sourceTree = "<group>"; };
+		68C555D9183110B000AD7029 /* TapFlash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapFlash.h; sourceTree = "<group>"; };
+		68C555DA183110B000AD7029 /* TapFlash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapFlash.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				5AB2DB3D181566BC0038B6F7 /* ColorPicker */,
-				5ADFA7CC17F1F16A00B64813 /* AppDelegate.h */,
+				68C555DC183110B900AD7029 /* TapFlash */,
 				5ADFA7CD17F1F16A00B64813 /* AppDelegate.m */,
+				5ADFA7CC17F1F16A00B64813 /* AppDelegate.h */,
 				5ADFA7D517F1F16A00B64813 /* ViewController.h */,
 				5ADFA7D617F1F16A00B64813 /* ViewController.m */,
 				5ADFA7D817F1F16A00B64813 /* ViewController.xib */,
@@ -144,6 +148,15 @@
 				5ADFA7D317F1F16A00B64813 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68C555DC183110B900AD7029 /* TapFlash */ = {
+			isa = PBXGroup;
+			children = (
+				68C555D9183110B000AD7029 /* TapFlash.h */,
+				68C555DA183110B000AD7029 /* TapFlash.m */,
+			);
+			name = TapFlash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +234,7 @@
 			files = (
 				5ADFA7CA17F1F16A00B64813 /* main.m in Sources */,
 				5ADFA7CE17F1F16A00B64813 /* AppDelegate.m in Sources */,
+				68C555DB183110B000AD7029 /* TapFlash.m in Sources */,
 				5ADFA7D717F1F16A00B64813 /* ViewController.m in Sources */,
 				5AB5A7D417F46D9B00A3CA9F /* SettingsViewController.m in Sources */,
 				5AB2DB41181566E30038B6F7 /* ColorPicker.m in Sources */,
