@@ -153,8 +153,8 @@
 		68C555DC183110B900AD7029 /* TapFlash */ = {
 			isa = PBXGroup;
 			children = (
-				68C555DA183110B000AD7029 /* TapFlash.m */,
 				68C555D9183110B000AD7029 /* TapFlash.h */,
+				68C555DA183110B000AD7029 /* TapFlash.m */,
 			);
 			name = TapFlash;
 			sourceTree = "<group>";

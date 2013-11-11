@@ -10,4 +10,7 @@
 
 @interface TapFlash : UIControl
 
+@property UIImageView *imageView;
+@property (strong, nonatomic) UIImage *flashImage;
+
 @end
