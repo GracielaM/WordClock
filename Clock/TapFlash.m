@@ -12,11 +12,36 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    frame = CGRectMake(0, 0, 40, 40);
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
+}
+
+-(void)changeAlpha
+{
+    [UIView animateWithDuration:1.0 animations:^(void) {
+        _imageView.alpha = 0;
+        _imageView.alpha = 1;
+        _imageView.alpha = 0;
+    }];
+}
+
+- (void)setup
+{
+    _flashImage = [UIImage imageNamed:@"flash.png"];
+    self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    _imageView.image = _flashImage;
+    [self addSubview:self.imageView];
+}
+
+-(void)flash:(CGPoint)location
+{
+    _imageView.center = location;
+    [self changeAlpha];
+    _imageView.hidden = YES;
 }
 
 /*

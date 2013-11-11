@@ -13,4 +13,8 @@
 @property UIImageView *imageView;
 @property (strong, nonatomic) UIImage *flashImage;
 
+-(void)changeAlpha;
+-(void)flash:(CGPoint)location;
+-(void)setup;
+
 @end
