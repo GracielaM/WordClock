@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A00BC72182D1A880011293B /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A00BC71182D1A880011293B /* palette.png */; };
+		5A00BC74183115650011293B /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A00BC73183115650011293B /* flash.png */; };
 		5A20656318193FC80068545D /* palette9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A20656218193FC80068545D /* palette9.png */; };
 		5AB2DB41181566E30038B6F7 /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB2DB3F181566E30038B6F7 /* ColorPicker.m */; };
 		5AB2DB4A181937510038B6F7 /* palett.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB2DB49181937510038B6F7 /* palett.png */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		5A00BC71182D1A880011293B /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
+		5A00BC73183115650011293B /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash.png; sourceTree = "<group>"; };
 		5A20656218193FC80068545D /* palette9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette9.png; sourceTree = "<group>"; };
 		5AB2DB3E181566E30038B6F7 /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		5AB2DB3F181566E30038B6F7 /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		5ADFA7C417F1F16A00B64813 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5A00BC73183115650011293B /* flash.png */,
 				5A00BC71182D1A880011293B /* palette.png */,
 				5AB2DB49181937510038B6F7 /* palett.png */,
 				5ADFA7C517F1F16A00B64813 /* Clock-Info.plist */,
@@ -212,6 +215,7 @@
 			files = (
 				5ADFA7C817F1F16A00B64813 /* InfoPlist.strings in Resources */,
 				5A00BC72182D1A880011293B /* palette.png in Resources */,
+				5A00BC74183115650011293B /* flash.png in Resources */,
 				68C555D8181FE7CB00AD7029 /* palette@2x.png in Resources */,
 				5ADFA7D017F1F16A00B64813 /* Default.png in Resources */,
 				5ADFA7D217F1F16A00B64813 /* Default@2x.png in Resources */,
