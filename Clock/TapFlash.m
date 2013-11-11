@@ -12,7 +12,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    frame = CGRectMake(0, 0, 40, 40);
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
@@ -25,7 +24,7 @@
     [UIView animateWithDuration:1.0 animations:^(void) {
         _imageView.alpha = 0;
         _imageView.alpha = 1;
-        _imageView.alpha = 0;
+       // _imageView.alpha = 0;
     }];
 }
 
@@ -41,7 +40,7 @@
 {
     _imageView.center = location;
     [self changeAlpha];
-    _imageView.hidden = YES;
+   // _imageView.hidden = YES;
 }
 
 /*

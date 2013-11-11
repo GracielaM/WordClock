@@ -8,7 +8,7 @@
 
 #import "ColorPicker.h"
 #import <QuartzCore/QuartzCore.h> 
-
+#import "TapFlash.h"
 
 @implementation ColorPicker
 
@@ -54,6 +54,8 @@
     if (self.touchInside) {
         CGPoint p = [touch locationInView:self];
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
+        TapFlash* tapFlash = [[TapFlash alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [tapFlash flash:p];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
@@ -63,6 +65,8 @@
     if (self.touchInside) {
         CGPoint p = [touch locationInView:self];
         _oldColor = [self getRGBAsFromImageAtPoint:&p];
+        TapFlash* tapFlash = [[TapFlash alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [tapFlash flash:p];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     return (YES);
